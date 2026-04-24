@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-race-red: #FF0000;
+  --color-charcoal: #0A0A0A;
+  --color-charcoal-light: #161616;
+  --color-metal: #4A4A4A;
+  --color-metal-light: #5A5A5A;
+  
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-[rgba(30,30,30,0.6)] backdrop-blur-[12px] border border-[rgba(74,74,74,0.5)];
+  }
+
+  .grid-lines {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+body {
+  @apply bg-[#0A0A0A] text-[#E4E3E0] font-sans antialiased overflow-x-hidden;
+}
+
+/* Subtle pulse animation for lines */
+@keyframes pulse-line {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; box-shadow: 0 0 8px var(--color-race-red); }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 3s infinite;
+}
