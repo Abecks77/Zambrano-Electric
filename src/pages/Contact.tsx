@@ -28,7 +28,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Facility Address</h3>
-                <p className="text-gray-400">Amarillo, TX <br/>Serving the Texas Panhandle</p>
+                <p className="text-gray-400">3815 N Progressive Rd <br/>Hereford, TX 79045</p>
               </div>
             </div>
 
@@ -38,7 +38,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Dispatch & Support</h3>
-                <p className="text-gray-400">Main: (555) 123-4567<br/>Emergency 24/7: (555) 911-3456</p>
+                <p className="text-gray-400">Main: (806) 576-7703<br/>Emergency 24/7: (806) 576-7703</p>
               </div>
             </div>
 
@@ -48,7 +48,7 @@ export const Contact = () => {
               </div>
               <div>
                 <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Electronic Comm</h3>
-                <p className="text-gray-400">info@zambranoelectric.com<br/>bidding@zambranoelectric.com</p>
+                <p className="text-gray-400">jz@zambranoelectric.com</p>
               </div>
             </div>
           </div>

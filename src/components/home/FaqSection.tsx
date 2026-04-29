@@ -18,7 +18,7 @@ const faqs: FAQ[] = [
   {
     id: 2,
     question: "What is your primary service area?",
-    answer: "Headquartered in Amarillo, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region, including surrounding industrial and agricultural hubs.",
+    answer: "Headquartered in Hereford, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region, including surrounding industrial and agricultural hubs.",
     side: 'left'
   },
   {
@@ -94,7 +94,7 @@ export const FaqSection = () => {
   const rightFaqs = faqs.filter(faq => faq.side === 'right');
 
   return (
-    <section className="py-24 bg-charcoal relative border-t border-[#1C1C1C]">
+    <section className="py-24 bg-transparent relative">
       {/* Schematic Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
         backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,

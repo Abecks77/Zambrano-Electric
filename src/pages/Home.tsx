@@ -12,9 +12,9 @@ export const Home = () => {
   return (
     <>
       <Hero />
+      <ServiceMap />
       <SeoSection />
       <BranchCards />
-      <ServiceMap />
       <HowWeWork />
       <FaqSection />
       <HomeContactBooking />

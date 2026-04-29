@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, Zap, Target, ShieldAlert } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { LightningCanvas } from '../ui/LightningCanvas';
 
 export const Hero = () => {
   return (
@@ -14,9 +13,6 @@ export const Hero = () => {
       
       {/* Grid Lines Pattern */}
       <div className="absolute inset-0 grid-lines pointer-events-none z-0"></div>
-
-      {/* Lightning Overlay */}
-      <LightningCanvas className="opacity-80 drop-shadow-[0_0_10px_#FF0000]" />
 
       {/* Vignette/Gradient overlays */}
       <div className="absolute inset-0 z-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/80" />
@@ -36,7 +32,7 @@ export const Hero = () => {
           </h1>
           
           <p className="mt-6 text-gray-400 max-w-lg text-sm border-l-2 border-race-red pl-4 mb-10">
-            Amarillo's premier industrial and commercial electrical contractors. We specialize in heavy-duty electrical infrastructure, high-pressure excavation, and critical compressed air systems for high-demand environments.
+            The Texas Panhandle's premier industrial and commercial electrical contractors. We specialize in heavy-duty electrical infrastructure, high-pressure excavation, and critical compressed air systems for high-demand environments.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-start">

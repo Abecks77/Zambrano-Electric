@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <footer className="bg-charcoal-light border-t border-metal relative overflow-hidden">
+    <footer className="bg-charcoal-light relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -28,7 +28,7 @@ export const Footer = () => {
                />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Top-rated industrial & commercial electrical contractors serving Amarillo and the Texas Panhandle. Powering progress with precision and heavy-duty capabilities.
+              Top-rated industrial & commercial electrical contractors serving the Texas Panhandle. Powering progress with precision and heavy-duty capabilities.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-center gap-2 font-mono"><Phone className="h-4 w-4 text-race-red" /> (806) 576-7703</li>
               <li className="flex items-center gap-2 font-mono"><Mail className="h-4 w-4 text-race-red" /> jz@zambranoelectric.com</li>
-              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-race-red mt-1" /> Amarillo, TX<br/>Texas Panhandle</li>
+              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-race-red mt-1" /> 3815 N Progressive Rd<br/>Hereford, TX 79045</li>
             </ul>
           </div>
 

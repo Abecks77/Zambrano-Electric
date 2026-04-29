@@ -3,7 +3,7 @@ import { ShieldCheck, Map, Zap, Factory } from 'lucide-react';
 
 export const SeoSection = () => {
   return (
-    <section className="py-24 bg-charcoal relative border-t border-[#1C1C1C]">
+    <section className="py-24 bg-transparent relative">
       <div className="absolute inset-0 grid-lines pointer-events-none z-0 opacity-50"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -16,13 +16,13 @@ export const SeoSection = () => {
             </div>
             
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-6 text-[#E4E3E0]">
-              Trusted Electricians in Amarillo & <br />
+              Trusted Electricians in <br />
               <span className="text-race-red">The Texas Panhandle</span>
             </h2>
             
             <div className="space-y-4 text-sm text-gray-400 leading-relaxed max-w-xl">
               <p>
-                When operations are on the line, local industries turn to <strong className="text-gray-200">Zambrano Electric, LLC</strong>. Based locally in Amarillo, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region. 
+                When operations are on the line, local industries turn to <strong className="text-gray-200">Zambrano Electric, LLC</strong>. Based locally in Hereford, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region. 
               </p>
               <p>
                 From rapid-response machinery troubleshooting to full-scale manufacturing plant wiring, our certified electricians possess the specialized expertise required for complex power systems. We don't just service equipment; we build the resilient electrical infrastructure, underground utilities, and compressed air networks that keep Texas businesses operational 24/7.
@@ -36,7 +36,7 @@ export const SeoSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase text-[#E4E3E0]">Local Expertise</h4>
-                  <p className="text-[10px] text-gray-400 mt-1 uppercase tracking-wider">Amarillo & Surrounding Areas</p>
+                  <p className="text-[10px] text-gray-400 mt-1 uppercase tracking-wider">The Texas Panhandle & Surrounding Areas</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -66,7 +66,7 @@ export const SeoSection = () => {
                   "Industrial Electrical Installation & Repair",
                   "Commercial Electrical Contracting",
                   "High-Voltage Switchgear & Transformers",
-                  "Amarillo Emergency Electrical Services",
+                  "Texas Panhandle Emergency Electrical Services",
                   "Underground Conduit & Utility Ditching",
                   "Heavy-Duty Compressed Air Piping"
                 ].map((keyword, index) => (

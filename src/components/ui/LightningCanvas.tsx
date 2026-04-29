@@ -65,7 +65,7 @@ export const LightningCanvas: React.FC<{ className?: string }> = ({ className })
       ctx.fillRect(0, 0, width, height);
 
       // Random lightning strikes
-      if (frame - lastLightning > Math.random() * 200 + 100) {
+      if (frame - lastLightning > Math.random() * 300 + 200) {
         lastLightning = frame;
         const startX = Math.random() * width;
         const points = generateLightning(startX, 0, startX + (Math.random() - 0.5) * 400, height, 0);

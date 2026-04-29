@@ -29,12 +29,10 @@ const branchData: Record<string, any> = {
     image: 'https://images.unsplash.com/photo-1621905252507-b354bcadc0e8?q=80&w=2070&auto=format&fit=crop',
     icon: HardHat,
     features: [
-      'Hydro Excavation (Non-Destructive)',
-      'Directional Drilling',
-      'Trenching & Shoring',
-      'Underground Duct Banks',
-      'Manhole & Vault Installation',
-      'Site Utility Preparation'
+      'Hydro Excavation',
+      'Trenching',
+      'Manhole/Vault Installation',
+      'Underground Electrical Fault Repairs'
     ],
     gallery: [
       'https://images.unsplash.com/photo-1590487988330-896898166946?q=80&w=2070&auto=format&fit=crop',
@@ -49,10 +47,8 @@ const branchData: Record<string, any> = {
     icon: Wind,
     features: [
       'Compressor Room Design & Build',
-      'Aluminum & Stainless Steel Piping',
-      'Air Dryer & Filtration Systems',
+      'Compressed Air Piping Installation',
       'Receiver Tank Installation',
-      'System Audits & Leak Detection',
       'Machinery Pneumatic Integration'
     ],
     gallery: [

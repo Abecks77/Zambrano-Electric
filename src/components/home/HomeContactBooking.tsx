@@ -10,7 +10,7 @@ export const HomeContactBooking = () => {
     };
 
     return (
-      <section className="pt-24 pb-32 bg-[#161616] relative border-t border-[#2b2b2b]">
+      <section className="pt-24 pb-32 bg-transparent relative">
         <div className="absolute inset-0 grid-lines pointer-events-none z-0 opacity-20"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

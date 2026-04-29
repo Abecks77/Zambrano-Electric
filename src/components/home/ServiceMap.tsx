@@ -3,7 +3,7 @@ import { MapPin, Target } from 'lucide-react';
 
 export const ServiceMap = () => {
   return (
-    <section className="py-24 bg-[#0A0A0A] relative border-t border-[#1C1C1C] overflow-hidden">
+    <section className="py-24 bg-transparent relative overflow-hidden">
       <div className="absolute inset-0 grid-lines pointer-events-none z-0 opacity-30"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -15,7 +15,7 @@ export const ServiceMap = () => {
             Service Zone & <span className="text-race-red">Dispatch Area</span>
           </h2>
           <p className="text-gray-400 text-sm">
-            Based in Amarillo, Texas. Rapidly deploying industrial crews across the entire Texas Panhandle and surrounding regional manufacturing hubs.
+            Based in Hereford, Texas. Rapidly deploying industrial crews across the entire Texas Panhandle and surrounding regional manufacturing hubs.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export const ServiceMap = () => {
               </div>
 
               <div className="absolute bottom-4 left-4 glassmorphism px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-[#E4E3E0] flex items-center gap-2">
-                <span className="w-2 h-2 bg-race-red rounded-full animate-pulse"></span> Amarillo Dispatch Active
+                <span className="w-2 h-2 bg-race-red rounded-full animate-pulse"></span> Hereford Dispatch Active
               </div>
             </div>
           </div>
@@ -68,14 +68,9 @@ export const ServiceMap = () => {
                   Primary Coverage Nodes
                </h3>
                <ul className="grid grid-cols-2 gap-4 text-sm text-gray-400 mb-8 font-mono tracking-tight">
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Amarillo</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Lubbock</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Pampa</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Borger</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Dumas</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Plainview</li>
                    <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Hereford</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Canyon</li>
+                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Amarillo</li>
+                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Plainview</li>
                </ul>
 
                <div className="p-4 bg-[rgba(255,0,0,0.05)] border border-race-red/30">
