@@ -7,6 +7,8 @@ import { ServiceMap } from '../components/home/ServiceMap';
 import { HomeContactBooking } from '../components/home/HomeContactBooking';
 import { HowWeWork } from '../components/home/HowWeWork';
 
+import { Banner } from '../components/home/Banner';
+
 export const Home = () => {
 
   return (
@@ -18,6 +20,7 @@ export const Home = () => {
       <HowWeWork />
       <FaqSection />
       <HomeContactBooking />
+      <Banner />
     </>
   );
 };

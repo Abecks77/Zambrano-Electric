@@ -2,8 +2,8 @@
 
 @theme {
   --color-race-red: #FF0000;
-  --color-charcoal: #0A0A0A;
-  --color-charcoal-light: #161616;
+  --color-charcoal: #050505;
+  --color-charcoal-light: #111111;
   --color-metal: #4A4A4A;
   --color-metal-light: #5A5A5A;
   
@@ -17,14 +17,14 @@
   }
 
   .grid-lines {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(#1A1A1A 1px, transparent 1px),
+                      linear-gradient(90deg, #1A1A1A 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
 
 body {
-  @apply bg-[#0A0A0A] text-[#E4E3E0] font-sans antialiased overflow-x-hidden;
+  @apply bg-[#050505] text-[#E4E3E0] font-sans antialiased overflow-x-hidden;
 }
 
 /* Subtle pulse animation for lines */

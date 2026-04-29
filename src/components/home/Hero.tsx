@@ -7,16 +7,16 @@ export const Hero = () => {
     <div className="relative w-full h-[85vh] min-h-[600px] flex items-center overflow-hidden">
       {/* Background Image (unsplash placeholder for refinery at night) */}
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1550993086-fbcecb8b9c29?q=80&w=2938&auto=format&fit=crop")' }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-60 mix-blend-luminosity"
+        style={{ 
+          backgroundImage: 'url("https://images.unsplash.com/photo-1550993086-fbcecb8b9c29?q=80&w=2938&auto=format&fit=crop")',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+          maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'
+        }}
       />
       
-      {/* Grid Lines Pattern */}
-      <div className="absolute inset-0 grid-lines pointer-events-none z-0"></div>
-
       {/* Vignette/Gradient overlays */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/80" />
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-charcoal via-transparent to-transparent opacity-80" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#050505] via-[rgba(5,5,5,0.7)] to-transparent pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

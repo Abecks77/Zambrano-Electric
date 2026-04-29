@@ -40,7 +40,7 @@ export const BranchCards = () => {
   return (
     <section id="branches" className="py-32 bg-transparent relative overflow-hidden">
       {/* Background Technical Elements */}
-      <div className="absolute inset-0 grid-lines opacity-20 pointer-events-none"></div>
+
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-metal to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
