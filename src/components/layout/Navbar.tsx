@@ -18,21 +18,10 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-50 glassmorphism border-b border-metal/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <Link to="/" className="flex items-center group">
-              <img 
-                src="https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d" 
-                alt="Zambrano Electric Logo" 
-                className="h-16 w-auto object-contain"
-                referrerPolicy="no-referrer"
-              />
-            </Link>
-          </div>
-          
+        <div className="flex items-center justify-end md:justify-center h-20 w-full relative">
           {/* Desktop Nav */}
-          <div className="hidden md:block">
-            <div className="ml-4 lg:ml-8 flex items-center space-x-3 lg:space-x-5">
+          <div className="hidden md:flex">
+            <div className="flex items-center space-x-3 lg:space-x-5">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
