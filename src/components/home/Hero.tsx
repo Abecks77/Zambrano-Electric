@@ -56,15 +56,17 @@ export const Hero = () => {
           </div>
           
           <div className="w-full flex justify-center lg:justify-end items-center relative group mt-12 lg:mt-0">
-            {/* Interactive Glow Background */}
-            <div className="absolute inset-0 bg-race-red/40 blur-[80px] rounded-full opacity-40 scale-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-in-out pointer-events-none"></div>
+            {/* Interactive Glow Background - Outer div for hover transition, inner for pulsing */}
+            <div className="absolute inset-0 scale-90 group-hover:scale-110 transition-transform duration-1000 ease-in-out pointer-events-none">
+              <div className="absolute inset-0 bg-race-red/40 blur-[80px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-1000 animate-pulse"></div>
+            </div>
             
             {/* 3D Interactivity Wrapper */}
             <div className="relative transition-all duration-700 ease-out transform group-hover:scale-105 group-hover:-rotate-3 group-hover:translate-y-[-10px] w-full max-w-[500px]">
               <img 
                 src="https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d"
                 alt="Zambrano Electric Logo" 
-                className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(204,0,0,0.5)] group-hover:drop-shadow-[0_0_60px_rgba(204,0,0,0.8)] transition-all duration-700 animate-pulse-slow"
+                className="w-full h-auto object-contain drop-shadow-[0_0_30px_rgba(204,0,0,0.5)] group-hover:drop-shadow-[0_0_60px_rgba(204,0,0,0.8)] transition-all duration-700"
                 referrerPolicy="no-referrer"
               />
             </div>
