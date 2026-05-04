@@ -40,8 +40,11 @@ export const BranchCards = () => {
   return (
     <section id="branches" className="py-32 bg-transparent relative overflow-hidden">
       {/* Background Technical Elements */}
+      <div className="absolute inset-0 bg-diamond-plate pointer-events-none z-0 mix-blend-screen opacity-50"></div>
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#050505] to-transparent z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050505] to-transparent z-0 pointer-events-none"></div>
 
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-metal to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-metal to-transparent z-10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
