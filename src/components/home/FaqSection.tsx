@@ -95,11 +95,6 @@ export const FaqSection = () => {
 
   return (
     <section className="py-24 bg-transparent relative">
-      {/* Schematic Background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }}></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -139,6 +134,22 @@ export const FaqSection = () => {
               />
             ))}
           </div>
+        </div>
+
+        {/* New CTA: Still Have Questions? */}
+        <div className="mt-16 flex flex-col items-center">
+            <p className="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-6 font-mono">End of knowledge base // Missing Information?</p>
+            <button 
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20"
+            >
+              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
+                Speak Directly with Management <HelpCircle className="h-4 w-4 text-race-red" />
+              </span>
+            </button>
         </div>
 
       </div>

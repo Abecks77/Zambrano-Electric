@@ -3,10 +3,38 @@ import { Calendar, Search, ArrowRight, ShieldAlert } from 'lucide-react';
 
 export const HomeContactBooking = () => {
     const [submitted, setSubmitted] = useState(false);
+    const [generalInquirySubmitted, setGeneralInquirySubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleWebhookSubmit = async (formData: FormData, formType: string) => {
+      const data = Object.fromEntries(formData.entries());
+      try {
+        await fetch('https://services.leadconnectorhq.com/hooks/xAuIjpx4UqRJpgJS79j0/webhook-trigger/5f7fb200-5ad9-462c-a5fc-6fabad15ffb3', {
+          method: 'POST',
+          body: JSON.stringify({
+            ...data,
+            formType: formType
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        return true;
+      } catch (error) {
+        console.error('Submission error:', error);
+        return true; // Still return true for UX fallback
+      }
+    };
+
+    const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      setSubmitted(true);
+      const success = await handleWebhookSubmit(new FormData(e.currentTarget), 'Home Slot Booking');
+      if (success) setSubmitted(true);
+    };
+
+    const handleGeneralSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const success = await handleWebhookSubmit(new FormData(e.currentTarget), 'Home General Inquiry');
+      if (success) setGeneralInquirySubmitted(true);
     };
 
     return (
@@ -31,33 +59,46 @@ export const HomeContactBooking = () => {
                         <Search className="h-5 w-5 text-race-red" /> Direct Communication
                     </h3>
                     
-                    <form className="space-y-6">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
-                                <input type="text" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                    {generalInquirySubmitted ? (
+                        <div className="h-full flex flex-col items-center justify-center text-center p-8">
+                            <ArrowRight className="h-12 w-12 text-race-red mb-4" />
+                            <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">Transmission Success</h4>
+                            <p className="text-sm text-gray-400 font-mono">Your signal has been received. Our heavy-duty team will respond shortly.</p>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleGeneralSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Full Name</label>
+                                    <input name="fullName" required type="text" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Company</label>
+                                    <input name="company" required type="text" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                                </div>
                             </div>
                             <div>
-                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Company</label>
-                                <input type="text" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
+                                <input name="email" required type="email" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
                             </div>
-                        </div>
-                        <div>
-                            <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
-                            <input type="email" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
-                        </div>
-                        <div>
-                            <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Transmission Message</label>
-                            <textarea rows={4} className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors align-top"></textarea>
-                        </div>
-                        <button type="button" className="w-full p-4 bg-[rgba(30,30,30,0.8)] border border-[rgba(74,74,74,0.5)] hover:border-race-red text-white font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 group">
-                            Send General Inquiry <ArrowRight className="h-4 w-4 text-race-red transform group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </form>
+                            <div>
+                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Transmission Message</label>
+                                <textarea name="message" required rows={4} className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors align-top"></textarea>
+                            </div>
+                            <button 
+                                type="submit" 
+                                className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group"
+                            >
+                                <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
+                                    Send General Inquiry <ArrowRight className="h-4 w-4 text-race-red" />
+                                </span>
+                            </button>
+                        </form>
+                    )}
                 </div>
 
                 {/* Booking Calendar Integration */}
-                <div className="glassmorphism p-8 border-t-4 border-t-race-red bg-[#0A0A0A]/40">
+                <div className="glassmorphism p-8 bg-[#0A0A0A]/40">
                     <h3 className="text-xl font-black uppercase tracking-widest text-[#E4E3E0] mb-6 border-b border-[#4A4A4A]/50 pb-4 flex items-center gap-3">
                         <Calendar className="h-5 w-5 text-race-red" /> Secure a Slot
                     </h3>
@@ -69,13 +110,13 @@ export const HomeContactBooking = () => {
                             <p className="text-sm text-gray-400 font-mono">Your consultation slot has been reserved. Our deployment terminal will confirm via email.</p>
                         </div>
                     ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6 flex flex-col h-full">
+                        <form onSubmit={handleBookingSubmit} className="space-y-6 flex flex-col">
                             
-                            <div>
-                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-2">
-                                    Target Date
-                                </label>
-                                <div className="border border-[rgba(74,74,74,0.5)] p-1 bg-[#050505]">
+                            <div className="border border-[rgba(74,74,74,0.5)] bg-[#050505] overflow-hidden">
+                                <div className="p-4 border-b border-[rgba(74,74,74,0.5)]">
+                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-2">
+                                        Target Date Selection
+                                    </label>
                                     <div className="grid grid-cols-7 gap-1 text-center mb-1">
                                         {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
                                         <div key={i} className="text-[10px] font-bold text-gray-500 py-1">{day}</div>
@@ -98,27 +139,35 @@ export const HomeContactBooking = () => {
                                         })}
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="flex gap-4">
-                                <label className="flex-1 relative cursor-pointer">
-                                    <input type="radio" name="timeOfDayHome" value="morning" className="peer sr-only" defaultChecked />
-                                    <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-xs font-bold uppercase tracking-widest text-gray-400 peer-checked:text-white">
-                                        AM Slot
+                                <div className="p-4 bg-charcoal/30 space-y-4">
+                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 flex items-center gap-2">
+                                        Deployment Window
+                                    </label>
+                                    <div className="flex gap-4">
+                                        <label className="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="timeOfDayHome" value="morning" className="peer sr-only" defaultChecked />
+                                            <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-[10px] font-bold uppercase tracking-widest text-gray-500 peer-checked:text-white">
+                                                AM Slot
+                                            </div>
+                                        </label>
+                                        <label className="flex-1 relative cursor-pointer">
+                                            <input type="radio" name="timeOfDayHome" value="afternoon" className="peer sr-only" />
+                                            <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-[10px] font-bold uppercase tracking-widest text-gray-500 peer-checked:text-white">
+                                                PM Slot
+                                            </div>
+                                        </label>
                                     </div>
-                                </label>
-                                <label className="flex-1 relative cursor-pointer">
-                                    <input type="radio" name="timeOfDayHome" value="afternoon" className="peer sr-only" />
-                                    <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-xs font-bold uppercase tracking-widest text-gray-400 peer-checked:text-white">
-                                        PM Slot
-                                    </div>
-                                </label>
-                            </div>
 
-                            <div className="mt-auto pt-6">
-                                 <button type="submit" className="w-full px-8 py-4 bg-race-red text-black font-black uppercase tracking-widest text-sm hover:brightness-110 skew-x-[-10deg] flex items-center justify-center transition-all">
-                                    <span className="inline-block skew-x-[10deg] flex items-center gap-2">Lock In Date</span>
-                                </button>
+                                    <button 
+                                        type="submit" 
+                                        className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm shadow-xl border border-white/20 active:scale-95 transition-transform"
+                                    >
+                                        <span className="relative z-10 inline-flex items-center gap-3">
+                                            Lock In Deployment Date <Calendar className="h-4 w-4 text-race-red" />
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
 
                         </form>

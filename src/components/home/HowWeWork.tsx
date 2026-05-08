@@ -52,11 +52,6 @@ export const HowWeWork = () => {
         {/* Workflow Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           
-          {/* Connecting line for desktop */}
-          <div className="hidden lg:block absolute top-[4.5rem] left-0 w-full h-[1px] bg-metal z-0">
-             <div className="absolute top-0 left-0 w-1/3 h-full bg-race-red animate-[pulse-line_3s_infinite]"></div>
-          </div>
-
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -73,7 +68,7 @@ export const HowWeWork = () => {
                 </div>
 
                 {/* Card Content */}
-                <div className="glassmorphism p-6 flex-1 border-t-2 border-t-race-red group hover:bg-white/5 transition-colors">
+                <div className="glassmorphism p-6 flex-1 group hover:bg-white/5 transition-colors">
                   <div className="text-[10px] text-gray-500 font-mono tracking-widest mb-3">PHASE {step.id}</div>
                   <h3 className="text-base font-bold uppercase tracking-wide text-[#E4E3E0] mb-3">
                     {step.title}
@@ -86,6 +81,21 @@ export const HowWeWork = () => {
             );
           })}
 
+        </div>
+
+        {/* New CTA: Initiate Protocol */}
+        <div className="mt-16 flex justify-center">
+            <button 
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group relative px-12 py-6 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-2xl border border-white/20"
+            >
+              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
+                Initiate Project Protocol <ArrowRight className="h-5 w-5 text-race-red" />
+              </span>
+            </button>
         </div>
 
       </div>

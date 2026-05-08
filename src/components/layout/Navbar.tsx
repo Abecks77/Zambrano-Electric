@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
-import { Activity, Menu, X, ArrowRight } from 'lucide-react';
+import { Activity, Menu, X, ArrowRight, Phone } from 'lucide-react';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -16,72 +16,76 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 glassmorphism border-b border-metal/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-end md:justify-center h-20 w-full relative">
-          {/* Desktop Nav */}
-          <div className="hidden md:flex">
-            <div className="flex items-center space-x-3 lg:space-x-5">
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50">
+      <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl px-6 py-3">
+        <div className="flex items-center justify-between h-12 w-full relative">
+          {/* Logo or Brand Space (Optional, but kept center for this layout) */}
+          <div className="flex-1 flex md:justify-center">
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   className={cn(
-                    'text-[10px] lg:text-xs uppercase tracking-wider font-semibold transition-colors whitespace-nowrap',
-                    location.pathname === item.path ? 'text-white border-b border-race-red pb-1' : 'text-gray-500 hover:text-[#E4E3E0]'
+                    'text-[10px] lg:text-[11px] uppercase tracking-[0.2em] font-black transition-all hover:text-white',
+                    location.pathname === item.path ? 'text-race-red' : 'text-gray-400'
                   )}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="flex items-center gap-4 ml-4 lg:ml-6 pl-4 lg:pl-6 border-l border-[#4A4A4A]/50">
-                <Link
-                  to="/schedule"
-                  className="px-4 lg:px-6 py-2 bg-race-red text-black text-[10px] lg:text-xs font-black uppercase tracking-widest skew-x-[-10deg] hover:brightness-110 transition-all flex items-center gap-2 whitespace-nowrap"
-                >
-                  <span className="skew-x-[10deg] inline-flex items-center gap-1 sm:gap-2">Schedule <ArrowRight className="h-3 w-3" /></span>
-                </Link>
-              </div>
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+          <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4 pl-6 border-l border-white/10">
+              <a
+                href="tel:8065767703"
+                className="px-5 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-race-red hover:text-white transition-all transition-duration-300 flex items-center gap-2"
+              >
+                Call Now <Phone className="h-3 w-3 fill-current" />
+              </a>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-300 hover:text-white p-2"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Mobile nav */}
       {isOpen && (
-        <div className="md:hidden glassmorphism border-t border-metal border-b">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden mt-4 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl p-4">
+          <div className="space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'block px-3 py-2 rounded-md text-base font-medium uppercase',
-                  location.pathname === item.path ? 'bg-metal text-race-red' : 'text-gray-300 hover:bg-metal-light'
+                  'block px-4 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all',
+                  location.pathname === item.path ? 'bg-race-red text-white' : 'text-gray-400 hover:bg-white/5 hover:text-white'
                 )}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-metal mt-4 flex flex-col gap-2 px-3">
-                <Link
-                    to="/schedule"
+            <div className="pt-4 border-t border-white/10 mt-2">
+                <a
+                    href="tel:8065767703"
                     onClick={() => setIsOpen(false)}
-                    className="block text-center px-4 py-2 bg-race-red text-white text-base font-medium rounded uppercase tracking-wider transition-colors"
+                    className="flex justify-center items-center gap-2 px-4 py-3 bg-white text-black text-xs font-black rounded-xl uppercase tracking-widest transition-colors"
                 >
-                    Start Project
-                </Link>
+                    Call Now <Phone className="h-4 w-4 fill-current" />
+                </a>
             </div>
           </div>
         </div>

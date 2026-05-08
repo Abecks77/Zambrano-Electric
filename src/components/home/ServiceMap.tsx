@@ -19,11 +19,11 @@ export const ServiceMap = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           
           {/* Radar / Map GUI */}
-          <div className="glassmorphism p-2 relative group skew-x-[2deg]">
-            <div className="aspect-video bg-[#050505] border border-metal relative overflow-hidden flex items-center justify-center">
+          <div className="glassmorphism p-8 relative group skew-x-[2deg] flex flex-col h-full">
+            <div className="flex-grow aspect-video bg-[#050505] border border-metal relative overflow-hidden flex items-center justify-center mb-8">
               {/* Radar Grid */}
               <div className="absolute inset-0" style={{
                  backgroundImage: `radial-gradient(circle at center, transparent 0, transparent 48%, rgba(255,0,0,0.1) 49%, transparent 50%),
@@ -59,12 +59,21 @@ export const ServiceMap = () => {
                 <span className="w-2 h-2 bg-race-red rounded-full animate-pulse"></span> Hereford Dispatch Active
               </div>
             </div>
+
+            <button 
+              onClick={() => window.location.href = 'tel:8065767703'}
+              className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group"
+            >
+              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
+                Request Emergency Dispatch <Target className="h-4 w-4 text-race-red" />
+              </span>
+            </button>
           </div>
 
           {/* Locations Data */}
           <div>
-            <div className="glassmorphism p-8 border-l-4 border-l-race-red">
-               <h3 className="text-lg font-black uppercase tracking-widest text-[#E4E3E0] mb-6 border-b border-[#4A4A4A]/50 pb-4">
+            <div className="glassmorphism p-8 border-l-4 border-l-race-red h-full flex flex-col">
+               <h3 className="text-lg font-black uppercase tracking-widest text-[#E4E3E0] mb-6 pb-4">
                   Primary Coverage Nodes
                </h3>
                <ul className="grid grid-cols-2 gap-4 text-sm text-gray-400 mb-8 font-mono tracking-tight">
@@ -73,16 +82,19 @@ export const ServiceMap = () => {
                    <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Plainview</li>
                </ul>
 
-               <div className="p-4 bg-[rgba(255,0,0,0.05)] border border-race-red/30">
-                  <h4 className="text-xs font-bold uppercase text-race-red mb-1">Out of Bounds Deployment</h4>
-                  <p className="text-[10px] text-gray-300 font-mono tracking-widest leading-relaxed">
-                      For emergency deployments outside the immediate 150-mile radius, please route communications directly to our 24/7 dispatch hotline to authorize out-of-bounds heavy equipment transport.
-                  </p>
+               <div className="mt-auto">
+                 <div className="p-5 bg-[rgba(255,0,0,0.05)] border border-race-red/30">
+                    <h4 className="text-[10px] font-black uppercase text-race-red tracking-[0.2em] mb-2">Out of Bounds Deployment</h4>
+                    <p className="text-[10px] text-gray-300 font-mono tracking-widest leading-relaxed">
+                        For emergency deployments outside the immediate 150-mile radius, please route communications directly to our 24/7 dispatch hotline to authorize out-of-bounds heavy equipment transport.
+                    </p>
+                 </div>
                </div>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );

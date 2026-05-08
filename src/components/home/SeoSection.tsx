@@ -29,7 +29,7 @@ export const SeoSection = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 mb-10">
               <div className="flex items-start gap-4">
                 <div className="p-2 border border-[#4A4A4A] bg-[rgba(30,30,30,0.6)]">
                   <Map className="h-5 w-5 text-race-red" />
@@ -49,11 +49,23 @@ export const SeoSection = () => {
                 </div>
               </div>
             </div>
+
+            <button 
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20"
+            >
+              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
+                Consult Our Experts <Zap className="h-4 w-4 text-race-red" />
+              </span>
+            </button>
           </div>
 
           {/* Visual/Keywords Block */}
           <div className="relative">
-            <div className="glassmorphism p-8 md:p-12 border-t-4 border-t-race-red relative overflow-hidden">
+            <div className="glassmorphism p-8 md:p-12 relative overflow-hidden">
                {/* Internal grid */}
               <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,255,255,0.02)_2px,rgba(255,255,255,0.02)_4px)] pointer-events-none"></div>
               
