@@ -55,8 +55,8 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Zambrano Electric LLC | Industrial & Commercial Electricians | Hereford, TX</title>
-        <meta name="description" content="Top-rated industrial & commercial electrical contractors serving Hereford, Amarillo, and the Texas Panhandle. We specialize in electrical, underground, and compressed air systems." />
+        <title>Zambrano Electric LLC | Commercial & Industrial Electrician | Hereford & Amarillo TX</title>
+        <meta name="description" content="Top-rated commercial and industrial electrician serving Hereford, Amarillo, and the Texas Panhandle. Zambrano Electric LLC specializes in electrical contracting, underground systems, and compressed air installations. Call for a free estimate." />
         <link rel="canonical" href="https://zambranoelectric.com/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}

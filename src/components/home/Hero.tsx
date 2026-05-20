@@ -76,11 +76,11 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-6xl md:text-8xl lg:text-[110px] font-display font-black uppercase tracking-tighter leading-[0.82] mb-8"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black uppercase tracking-tighter leading-[0.95] mb-8"
             >
-              <span className="block italic text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">Powering</span>
-              <span className="block text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">The Texas</span>
-              <span className="block text-black">Panhandle</span>
+              <span className="block italic text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">Commercial &amp;</span>
+              <span className="block italic text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">Industrial Electrician</span>
+              <span className="block text-black text-xl sm:text-2xl md:text-3xl mt-4 font-sans tracking-wide">— Hereford, TX &amp; Amarillo TX</span>
             </motion.h1>
             
             <motion.div 

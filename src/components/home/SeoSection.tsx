@@ -22,10 +22,10 @@ export const SeoSection = () => {
             
             <div className="space-y-4 text-sm text-gray-400 leading-relaxed max-w-xl">
               <p>
-                When operations are on the line, local industries turn to <strong className="text-gray-200">Zambrano Electric, LLC</strong>. Based locally in Hereford, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region. 
+                When operations are on the line, local industries turn to <strong className="text-[#E4E3E0]">Zambrano Electric, LLC</strong>, your go-to <strong className="text-gray-200">commercial electrician Hereford TX</strong> and expert <strong className="text-gray-200">industrial electrician Amarillo</strong> provider. 
               </p>
               <p>
-                From rapid-response machinery troubleshooting to full-scale manufacturing plant wiring, our certified electricians possess the specialized expertise required for complex power systems. We don't just service equipment; we build the resilient electrical infrastructure, underground utilities, and compressed air networks that keep Texas businesses operational 24/7.
+                As a leading <strong className="text-gray-200">Texas Panhandle electrical contractor</strong>, our team of professional electricians possesses the specialized expertise required for complex power systems. Whether you need a comprehensive heavy industrial power layout, underground utilities, or rapid-response machinery troubleshooting, call us today for a <strong className="text-[#E4E3E0]">free estimate</strong>. We are fully <strong className="text-[#E4E3E0]">licensed and insured</strong>, ensuring maximum safety and absolute precision for every project.
               </p>
             </div>
 
