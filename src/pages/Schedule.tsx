@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Briefcase, Activity, FileText, UploadCloud } from 'lucide-react';
+import { localBusinessSchema } from '../lib/schemas';
 
 export const Schedule = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -34,6 +35,9 @@ export const Schedule = () => {
         <title>Schedule Service | Zambrano Electric | Hereford, TX</title>
         <meta name="description" content="Schedule a site visit or consultation with Zambrano Electric. We provide industrial electrical, underground, and pneumatic solutions in Hereford and the Texas Panhandle." />
         <link rel="canonical" href="https://zambranoelectric.com/schedule" />
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessSchema)}
+        </script>
       </Helmet>
       
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>

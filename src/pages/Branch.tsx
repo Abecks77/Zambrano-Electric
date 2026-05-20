@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, CheckCircle2, Factory, HardHat, Wind, Send, Search } from 'lucide-react';
+import { localBusinessSchema } from '../lib/schemas';
 
 const branchData: Record<string, any> = {
   'electrical': {
@@ -181,6 +182,9 @@ export const Branch = () => {
             "areaServed": ["Hereford, TX", "Amarillo, TX", "Texas Panhandle"],
             "url": `https://zambranoelectric.com/branch/${id}`
           })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessSchema)}
         </script>
       </Helmet>
       

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Lock, User, KeyRound, ShieldAlert } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { localBusinessSchema } from '../lib/schemas';
 
 export const Portal = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -9,21 +11,37 @@ export const Portal = () => {
     setIsLogged(true);
   };
 
+  const helmetContent = (
+    <Helmet>
+      <title>Client Portal | Zambrano Electric | Hereford, TX</title>
+      <meta name="description" content="Secure client portal for Zambrano Electric clients to view project updates and documents." />
+      <link rel="canonical" href="https://zambranoelectric.com/portal" />
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </script>
+    </Helmet>
+  );
+
   if (isLogged) {
     return (
-      <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 text-center">
-         <ShieldAlert className="h-24 w-24 text-race-red mx-auto mb-6" />
-         <h1 className="text-4xl font-display font-bold uppercase tracking-tight mb-4">Secure Terminal Active</h1>
-         <p className="text-gray-400 mb-8 max-w-2xl mx-auto">Welcome to the Zambrano Electric Client Portal. Here you can view active projects, access compliance documents, and review real-time site updates.</p>
-         <button onClick={() => setIsLogged(false)} className="px-6 py-2 border border-metal hover:border-race-red text-gray-400 hover:text-white uppercase text-xs tracking-widest transition-colors font-bold">
-           Disconnect
-         </button>
-      </div>
+      <>
+        {helmetContent}
+        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 text-center">
+           <ShieldAlert className="h-24 w-24 text-race-red mx-auto mb-6" />
+           <h1 className="text-4xl font-display font-bold uppercase tracking-tight mb-4">Secure Terminal Active</h1>
+           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">Welcome to the Zambrano Electric Client Portal. Here you can view active projects, access compliance documents, and review real-time site updates.</p>
+           <button onClick={() => setIsLogged(false)} className="px-6 py-2 border border-metal hover:border-race-red text-gray-400 hover:text-white uppercase text-xs tracking-widest transition-colors font-bold">
+             Disconnect
+           </button>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="flex-1 flex items-center justify-center w-full py-20 px-4">
+    <>
+      {helmetContent}
+      <div className="flex-1 flex items-center justify-center w-full py-20 px-4">
       <div className="w-full max-w-md">
         
         <div className="text-center mb-8">
@@ -75,6 +93,7 @@ export const Portal = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

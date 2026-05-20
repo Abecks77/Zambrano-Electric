@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Search, CheckCircle2 } from 'lucide-react';
+import { localBusinessSchema } from '../lib/schemas';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +42,9 @@ export const Contact = () => {
             "name": "Contact Zambrano Electric LLC",
             "url": "https://zambranoelectric.com/contact"
           })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(localBusinessSchema)}
         </script>
       </Helmet>
       
