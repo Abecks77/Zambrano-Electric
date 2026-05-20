@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, CheckCircle2, Factory, HardHat, Wind, Send, Search } from 'lucide-react';
 
 const branchData: Record<string, any> = {
@@ -162,6 +163,27 @@ export const Branch = () => {
 
   return (
     <div className="flex-1 w-full relative pb-20">
+      <Helmet>
+        <title>{branch.title} | Zambrano Electric | Hereford, TX</title>
+        <meta name="description" content={`${branch.description.substring(0, 150)}... Contact Zambrano Electric in Hereford, TX for ${branch.title.toLowerCase()} services.`} />
+        <link rel="canonical" href={`https://zambrano-electric.com/branch/${id}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": `${branch.title}`,
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Zambrano Electric LLC",
+              "url": "https://zambrano-electric.com"
+            },
+            "description": `${branch.description}`,
+            "areaServed": ["Hereford, TX", "Amarillo, TX", "Texas Panhandle"],
+            "url": `https://zambrano-electric.com/branch/${id}`
+          })}
+        </script>
+      </Helmet>
+      
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>
       
       {/* Branch Hero */}

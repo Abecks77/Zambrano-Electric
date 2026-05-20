@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Search, CheckCircle2 } from 'lucide-react';
 
 export const Contact = () => {
@@ -29,6 +30,20 @@ export const Contact = () => {
 
   return (
     <div className="flex-1 w-full relative">
+      <Helmet>
+        <title>Contact Us | Zambrano Electric | Hereford, TX</title>
+        <meta name="description" content="Contact Zambrano Electric in Hereford, TX for 24/7 emergency dispatch and reliable commercial electrical contracting." />
+        <link rel="canonical" href="https://zambrano-electric.com/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Zambrano Electric LLC",
+            "url": "https://zambrano-electric.com/contact"
+          })}
+        </script>
+      </Helmet>
+      
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-white">

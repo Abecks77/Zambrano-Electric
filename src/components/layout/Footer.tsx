@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
           <div className="col-span-1 md:col-span-1">
-             <Link to="/" className="flex items-center mb-4 group inline-flex">
+             <Link to="/" className="flex items-center mb-4 group inline-flex" aria-label="Zambrano Electric Home">
                <img 
                  src="https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d" 
                  alt="Zambrano Electric Logo" 

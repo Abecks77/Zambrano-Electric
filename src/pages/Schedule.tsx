@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Calendar, Briefcase, Activity, FileText, UploadCloud } from 'lucide-react';
 
 export const Schedule = () => {
@@ -29,6 +30,12 @@ export const Schedule = () => {
 
   return (
     <div className="flex-1 w-full relative">
+      <Helmet>
+        <title>Schedule Service | Zambrano Electric | Hereford, TX</title>
+        <meta name="description" content="Schedule a site visit or consultation with Zambrano Electric. We provide industrial electrical, underground, and pneumatic solutions in Hereford and the Texas Panhandle." />
+        <link rel="canonical" href="https://zambrano-electric.com/schedule" />
+      </Helmet>
+      
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-white">

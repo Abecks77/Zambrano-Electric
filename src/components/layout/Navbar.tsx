@@ -52,6 +52,8 @@ export const Navbar = () => {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle mobile menu"
+                aria-expanded={isOpen}
                 className="text-gray-300 hover:text-white p-2"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
