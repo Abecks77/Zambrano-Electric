@@ -12,10 +12,7 @@ async function startServer() {
 
   // 1. Dynamic Sitemap route
   app.get("/sitemap.xml", (req, res) => {
-    const host = req.get("host") || "zambranoelectric.com";
-    // Check if behind secure proxy (like Cloud Run or Cloudflare)
-    const protocol = req.headers["x-forwarded-proto"] || req.protocol || "https";
-    const baseUrl = `${protocol}://${host}`;
+    const baseUrl = "https://zambranoelectric.com";
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -69,9 +66,7 @@ async function startServer() {
 
   // 2. Dynamic Robots.txt route
   app.get("/robots.txt", (req, res) => {
-    const host = req.get("host") || "zambranoelectric.com";
-    const protocol = req.headers["x-forwarded-proto"] || req.protocol || "https";
-    const baseUrl = `${protocol}://${host}`;
+    const baseUrl = "https://zambranoelectric.com";
 
     const robots = `User-agent: *
 Allow: /
