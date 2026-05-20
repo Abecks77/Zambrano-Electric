@@ -33,13 +33,13 @@ export const Contact = () => {
       <Helmet>
         <title>Contact Us | Zambrano Electric | Hereford, TX</title>
         <meta name="description" content="Contact Zambrano Electric in Hereford, TX for 24/7 emergency dispatch and reliable commercial electrical contracting." />
-        <link rel="canonical" href="https://zambrano-electric.com/contact" />
+        <link rel="canonical" href="https://zambranoelectric.com/contact" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": "Contact Zambrano Electric LLC",
-            "url": "https://zambrano-electric.com/contact"
+            "url": "https://zambranoelectric.com/contact"
           })}
         </script>
       </Helmet>

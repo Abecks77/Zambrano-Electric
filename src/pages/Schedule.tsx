@@ -33,7 +33,7 @@ export const Schedule = () => {
       <Helmet>
         <title>Schedule Service | Zambrano Electric | Hereford, TX</title>
         <meta name="description" content="Schedule a site visit or consultation with Zambrano Electric. We provide industrial electrical, underground, and pneumatic solutions in Hereford and the Texas Panhandle." />
-        <link rel="canonical" href="https://zambrano-electric.com/schedule" />
+        <link rel="canonical" href="https://zambranoelectric.com/schedule" />
       </Helmet>
       
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>

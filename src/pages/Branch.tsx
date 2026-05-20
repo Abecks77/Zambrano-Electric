@@ -166,7 +166,7 @@ export const Branch = () => {
       <Helmet>
         <title>{branch.title} | Zambrano Electric | Hereford, TX</title>
         <meta name="description" content={`${branch.description.substring(0, 150)}... Contact Zambrano Electric in Hereford, TX for ${branch.title.toLowerCase()} services.`} />
-        <link rel="canonical" href={`https://zambrano-electric.com/branch/${id}`} />
+        <link rel="canonical" href={`https://zambranoelectric.com/branch/${id}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -175,11 +175,11 @@ export const Branch = () => {
             "provider": {
               "@type": "LocalBusiness",
               "name": "Zambrano Electric LLC",
-              "url": "https://zambrano-electric.com"
+              "url": "https://zambranoelectric.com"
             },
             "description": `${branch.description}`,
             "areaServed": ["Hereford, TX", "Amarillo, TX", "Texas Panhandle"],
-            "url": `https://zambrano-electric.com/branch/${id}`
+            "url": `https://zambranoelectric.com/branch/${id}`
           })}
         </script>
       </Helmet>

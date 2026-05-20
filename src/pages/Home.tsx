@@ -15,8 +15,8 @@ export const Home = () => {
     "@type": "Electrician",
     "name": "Zambrano Electric LLC",
     "image": "https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d",
-    "@id": "https://zambrano-electric.com/",
-    "url": "https://zambrano-electric.com/",
+    "@id": "https://zambranoelectric.com/",
+    "url": "https://zambranoelectric.com/",
     "telephone": "(806) 576-7703",
     "email": "jz@zambranoelectric.com",
     "address": {
@@ -57,7 +57,7 @@ export const Home = () => {
       <Helmet>
         <title>Zambrano Electric LLC | Industrial & Commercial Electricians | Hereford, TX</title>
         <meta name="description" content="Top-rated industrial & commercial electrical contractors serving Hereford, Amarillo, and the Texas Panhandle. We specialize in electrical, underground, and compressed air systems." />
-        <link rel="canonical" href="https://zambrano-electric.com/" />
+        <link rel="canonical" href="https://zambranoelectric.com/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>
