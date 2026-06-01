@@ -2,80 +2,45 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createServer as createViteServer } from "vite";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const seoMetadata: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: "Zambrano Electric LLC | Commercial & Industrial Electrician | Hereford & Amarillo TX",
+    description: "Top-rated commercial and industrial electrician serving Hereford, Amarillo, and the Texas Panhandle. Zambrano Electric LLC specializes in electrical contracting, underground systems, and compressed air installations. Call for a free estimate."
+  },
+  "/branch/electrical": {
+    title: "Commercial & Industrial Electrical Services | Zambrano Electric | Hereford, TX",
+    description: "Industrial and commercial electrical contractor services. From panel upgrades to full facility wiring. Contact Zambrano Electric in Hereford, TX for electrical services."
+  },
+  "/branch/underground": {
+    title: "Underground Utilities & Trenching | Zambrano Electric | Hereford, TX",
+    description: "Expert underground electrical utility installations and trenching. Contact Zambrano Electric in Hereford, TX for underground services."
+  },
+  "/branch/compressed-air": {
+    title: "Industrial Compressed Air Systems | Zambrano Electric | Hereford, TX",
+    description: "Pneumatic and compressed air system installations and maintenance for manufacturing. Contact Zambrano Electric in Hereford, TX for compressed air services."
+  },
+  "/schedule": {
+    title: "Schedule Service | Zambrano Electric | Hereford, TX",
+    description: "Schedule a site visit or consultation with Zambrano Electric. We provide industrial electrical, underground, and pneumatic solutions in Hereford and the Texas Panhandle."
+  },
+  "/contact": {
+    title: "Contact Us | Zambrano Electric | Hereford, TX",
+    description: "Contact Zambrano Electric in Hereford, TX for 24/7 emergency dispatch and reliable commercial electrical contracting."
+  },
+  "/portal": {
+    title: "Client Portal | Zambrano Electric | Hereford, TX",
+    description: "Secure client portal for Zambrano Electric clients to view project updates and documents."
+  }
+};
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
-
-  // 1. Dynamic Sitemap route
-  app.get("/sitemap.xml", (req, res) => {
-    const baseUrl = "https://zambranoelectric.com";
-
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${baseUrl}/</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/branch/electrical</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/branch/underground</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/branch/compressed-air</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/schedule</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/contact</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/portal</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-</urlset>`;
-
-    res.header("Content-Type", "application/xml");
-    res.status(200).send(sitemap);
-  });
-
-  // 2. Dynamic Robots.txt route
-  app.get("/robots.txt", (req, res) => {
-    const baseUrl = "https://zambranoelectric.com";
-
-    const robots = `User-agent: *
-Allow: /
-
-Sitemap: ${baseUrl}/sitemap.xml`;
-
-    res.header("Content-Type", "text/plain");
-    res.status(200).send(robots);
-  });
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
@@ -86,9 +51,37 @@ Sitemap: ${baseUrl}/sitemap.xml`;
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
+    const indexPath = path.join(distPath, "index.html");
+    
+    // Serve static files (assets, js, css, etc.)
+    app.use(express.static(distPath, { index: false }));
+
+    // For all other routes, inject SEO metadata into index.html if it exists
     app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+      fs.readFile(indexPath, "utf8", (err, htmlData) => {
+        if (err) {
+          console.error("Error during file reading", err);
+          return res.status(404).end();
+        }
+
+        const pathWithoutQuery = req.path;
+        const meta = seoMetadata[pathWithoutQuery] || seoMetadata["/"];
+
+        // Replace title and description in the HTML
+        let injectedHtml = htmlData;
+        if (meta) {
+          injectedHtml = injectedHtml.replace(
+            /<title>(.*?)<\/title>/,
+            `<title>${meta.title}</title>`
+          );
+          injectedHtml = injectedHtml.replace(
+            /<meta name="description" content="(.*?)" \/>/,
+            `<meta name="description" content="${meta.description}" />\n    <link rel="canonical" href="https://zambranoelectric.com${pathWithoutQuery === '/' ? '' : pathWithoutQuery}" />`
+          );
+        }
+
+        res.send(injectedHtml);
+      });
     });
   }
 
