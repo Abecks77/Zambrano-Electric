@@ -36,6 +36,8 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-gray-400">
               <li><Link to="/contact" className="hover:text-race-red transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-race-red transition-colors">Contact</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-race-red transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-race-red transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -55,8 +57,8 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} Zambrano Electric, LLC. All rights reserved.
           </p>
           <div className="flex space-x-6 text-gray-500 text-sm">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

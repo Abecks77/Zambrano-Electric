@@ -35,6 +35,14 @@ const seoMetadata: Record<string, { title: string; description: string }> = {
   "/portal": {
     title: "Client Portal | Zambrano Electric | Hereford, TX",
     description: "Secure client portal for Zambrano Electric clients to view project updates and documents."
+  },
+  "/terms-of-service": {
+    title: "Terms of Service | Zambrano Electric LLC | Hereford, TX",
+    description: "Terms of Service for Zambrano Electric LLC in Hereford, TX. Read our guidelines, SMS messaging terms, and service agreements."
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | Zambrano Electric LLC | Hereford, TX",
+    description: "Privacy Policy for Zambrano Electric LLC in Hereford, TX. Learn about how we collect, use, and protect your information."
   }
 };
 

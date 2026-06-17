@@ -7,6 +7,8 @@ import { Branch } from './pages/Branch';
 import { Schedule } from './pages/Schedule';
 import { Contact } from './pages/Contact';
 import { Portal } from './pages/Portal';
+import { TermsOfService } from './pages/TermsOfService';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
 
 export default function App() {
 
@@ -20,6 +22,8 @@ export default function App() {
             <Route path="schedule" element={<Schedule />} />
             <Route path="contact" element={<Contact />} />
             <Route path="portal" element={<Portal />} />
+            <Route path="terms-of-service" element={<TermsOfService />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
           </Route>
         </Routes>
       </BrowserRouter>
