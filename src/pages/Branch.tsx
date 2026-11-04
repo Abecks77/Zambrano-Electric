@@ -165,7 +165,7 @@ export const Branch = () => {
   return (
     <div className="flex-1 w-full relative pb-20">
       <Helmet>
-        <title>{branch.title} | Zambrano Electric | Hereford, TX</title>
+        <title>{`${branch.title} | Zambrano Electric | Hereford, TX`}</title>
         <meta name="description" content={`${branch.description.substring(0, 150)}... Contact Zambrano Electric in Hereford, TX for ${branch.title.toLowerCase()} services.`} />
         <link rel="canonical" href={`https://zambranoelectric.com/branch/${id}`} />
         <script type="application/ld+json">

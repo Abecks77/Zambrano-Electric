@@ -1,15 +1,15 @@
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Electrician",
   "name": "Zambrano Electric LLC",
   "url": "https://zambranoelectric.com",
-  "telephone": "[(806) 576-7703]",
-  "3815 N Progressive Rd": {
+  "telephone": "(806) 576-7703",
+  "address": {
     "@type": "PostalAddress",
-    "StreetAddress": "[3815 N Progressive Rd]",
+    "streetAddress": "3815 N Progressive Rd",
     "addressLocality": "Hereford",
     "addressRegion": "TX",
-    "postalCode": "[79045]",
+    "postalCode": "79045",
     "addressCountry": "US"
   },
   "areaServed": [
