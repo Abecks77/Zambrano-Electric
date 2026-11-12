@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Target } from 'lucide-react';
+import { BUSINESS } from '../../lib/business';
 
 export const ServiceMap = () => {
   return (
@@ -60,14 +61,14 @@ export const ServiceMap = () => {
               </div>
             </div>
 
-            <button 
-              onClick={() => window.location.href = 'tel:8065767703'}
-              className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group"
+            <a 
+              href={BUSINESS.phoneHref}
+              className="w-full block text-center relative px-6 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group"
             >
               <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Request Emergency Dispatch <Target className="h-4 w-4 text-race-red" />
+                Call 24/7 Emergency Line · {BUSINESS.phoneDisplay} <Target className="h-4 w-4 text-race-red" />
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Locations Data */}

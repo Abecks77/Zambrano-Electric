@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { homeFaqs } from '../../lib/content';
+import { CallButton } from '../ui/CallButton';
 
 interface FAQ {
   id: number;
@@ -8,44 +11,7 @@ interface FAQ {
   side: string;
 }
 
-const faqs: FAQ[] = [
-  {
-    id: 1,
-    question: "Do you offer 24/7 emergency electrical services?",
-    answer: "Yes. Critical infrastructure doesn't sleep, and neither do we. We provide round-the-clock emergency response for industrial equipment failures, power outages, and critical system faults across the Texas Panhandle.",
-    side: 'left'
-  },
-  {
-    id: 2,
-    question: "What is your primary service area?",
-    answer: "Headquartered in Hereford, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region, including surrounding industrial and agricultural hubs.",
-    side: 'left'
-  },
-  {
-    id: 3,
-    question: "What types of industrial facilities do you specialize in?",
-    answer: "Our expertise is focused on heavy-duty environments. This includes manufacturing plants, processing facilities, oil & gas operations, agricultural processing plants, and large-scale commercial warehousing.",
-    side: 'left'
-  },
-  {
-    id: 4,
-    question: "Can you handle high-voltage underground installations?",
-    answer: "Absolutely. Our dedicated Underground Systems division utilizes non-destructive hydro excavation and precision directional drilling to securely install subterranean conduit and high-voltage distribution lines without disrupting existing utilities.",
-    side: 'right'
-  },
-  {
-    id: 5,
-    question: "How do you handle project bidding and estimates?",
-    answer: "Transparency is key. We provide comprehensive, itemized bids for all commercial and industrial projects, ensuring complete clarity on materials, labor, and timelines before deployment begins.",
-    side: 'right'
-  },
-  {
-    id: 6,
-    question: "What safety certifications do your crews hold?",
-    answer: "We maintain a flawless 100% safety record. All operations strictly adhere to OSHA standards, and we are heavily certified with ISNetworld compliance, ensuring our crews operate securely in high-risk environments.",
-    side: 'right'
-  }
-];
+const faqs: FAQ[] = homeFaqs.map((f, i) => ({ id: i + 1, ...f, side: i < 3 ? 'left' : 'right' }));
 
 interface FaqItemProps {
   faq: FAQ;
@@ -138,18 +104,8 @@ export const FaqSection = () => {
 
         {/* New CTA: Still Have Questions? */}
         <div className="mt-16 flex flex-col items-center">
-            <p className="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-6 font-mono">End of knowledge base // Missing Information?</p>
-            <button 
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20"
-            >
-              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Speak Directly with Management <HelpCircle className="h-4 w-4 text-race-red" />
-              </span>
-            </button>
+            <p className="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-6 font-mono">Have a question we didn’t answer? <Link to="/faq" className="text-race-red underline">See all FAQs</Link> or call us.</p>
+            <CallButton label="Call & Ask Us Directly" />
         </div>
 
       </div>

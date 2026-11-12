@@ -1,5 +1,6 @@
 import React from 'react';
 import { ClipboardCheck, PenTool, HardHat, Activity, ArrowRight } from 'lucide-react';
+import { CallButton } from '../ui/CallButton';
 
 const steps = [
   {
@@ -85,17 +86,7 @@ export const HowWeWork = () => {
 
         {/* New CTA: Initiate Protocol */}
         <div className="mt-16 flex justify-center">
-            <button 
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group relative px-12 py-6 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-2xl border border-white/20"
-            >
-              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Initiate Project Protocol <ArrowRight className="h-5 w-5 text-race-red" />
-              </span>
-            </button>
+            <CallButton label="Call to Schedule a Site Assessment" />
         </div>
 
       </div>

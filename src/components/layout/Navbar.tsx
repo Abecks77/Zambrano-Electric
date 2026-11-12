@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../../lib/utils';
-import { Activity, Menu, X, ArrowRight, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
+import { BUSINESS } from '../../lib/business';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -41,15 +42,22 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-4 pl-6 border-l border-white/10">
               <a
-                href="tel:8065767703"
-                className="px-5 py-2 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-race-red hover:text-white transition-all transition-duration-300 flex items-center gap-2"
+                href={BUSINESS.phoneHref}
+                className="px-5 py-2 bg-race-red text-white text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-white hover:text-black transition-all flex items-center gap-2 whitespace-nowrap"
               >
-                Call Now <Phone className="h-3 w-3 fill-current" />
+                <Phone className="h-3 w-3 fill-current" /> Call to Book <span className="hidden lg:inline">{BUSINESS.phoneDisplay}</span>
               </a>
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center gap-2">
+              <a
+                href={BUSINESS.phoneHref}
+                aria-label={`Call ${BUSINESS.phoneDisplay}`}
+                className="flex items-center gap-2 px-3 py-2 bg-race-red text-white text-[10px] font-black uppercase tracking-widest rounded-lg"
+              >
+                <Phone className="h-4 w-4 fill-current" /> Call
+              </a>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle mobile menu"
@@ -82,11 +90,11 @@ export const Navbar = () => {
             ))}
             <div className="pt-4 border-t border-white/10 mt-2">
                 <a
-                    href="tel:8065767703"
+                    href={BUSINESS.phoneHref}
                     onClick={() => setIsOpen(false)}
-                    className="flex justify-center items-center gap-2 px-4 py-3 bg-white text-black text-xs font-black rounded-xl uppercase tracking-widest transition-colors"
+                    className="flex justify-center items-center gap-2 px-4 py-3 bg-race-red text-white text-xs font-black rounded-xl uppercase tracking-widest transition-colors"
                 >
-                    Call Now <Phone className="h-4 w-4 fill-current" />
+                    <Phone className="h-4 w-4 fill-current" /> Call to Book {BUSINESS.phoneDisplay}
                 </a>
             </div>
           </div>

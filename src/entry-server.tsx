@@ -4,7 +4,8 @@ import { StaticRouter } from 'react-router';
 import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
 import { AppRoutes } from './AppRoutes';
 
-export { prerenderRoutes } from './AppRoutes';
+export { prerenderRoutes, notFoundRoute } from './AppRoutes';
+export { buildLlmsTxt } from './llms';
 
 export interface RenderResult {
   html: string;

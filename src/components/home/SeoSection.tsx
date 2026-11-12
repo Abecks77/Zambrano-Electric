@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Map, Zap, Factory } from 'lucide-react';
+import { CallButton } from '../ui/CallButton';
 
 export const SeoSection = () => {
   return (
@@ -50,17 +51,7 @@ export const SeoSection = () => {
               </div>
             </div>
 
-            <button 
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20"
-            >
-              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Consult Our Experts <Zap className="h-4 w-4 text-race-red" />
-              </span>
-            </button>
+            <CallButton label="Call for a Free Estimate" />
           </div>
 
           {/* Visual/Keywords Block */}

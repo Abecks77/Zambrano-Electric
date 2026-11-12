@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, CheckCircle2, Factory, HardHat, Wind, Send, Search } from 'lucide-react';
-import { localBusinessSchema } from '../lib/schemas';
+import { localBusinessSchema, faqSchema, breadcrumbSchema, BUSINESS_ID } from '../lib/schemas';
+import { branchSeo } from '../lib/branchSeo';
+import { CallButton, CallReassurance } from '../components/ui/CallButton';
+import { FaqList } from '../components/ui/FaqList';
+import { BUSINESS } from '../lib/business';
 
 const branchData: Record<string, any> = {
   'electrical': {
@@ -91,34 +95,40 @@ const BranchContactForm = ({ branchName }: { branchName: string }) => {
   return (
     <div className="glassmorphism p-8">
         <h3 className="text-xl font-black uppercase tracking-widest text-[#E4E3E0] mb-6 border-b border-[#4A4A4A]/50 pb-4 flex items-center gap-3">
-          <Send className="h-5 w-5 text-race-red" /> Request A Quote: {branchName}
+          <Send className="h-5 w-5 text-race-red" /> Or Request a Call Back
         </h3>
       
       {submitted ? (
         <div className="py-12 text-center">
           <CheckCircle2 className="h-16 w-16 text-race-red mx-auto mb-4" />
-          <h4 className="text-2xl font-black uppercase tracking-tight text-white mb-2">Message Dispatched</h4>
-          <p className="text-gray-400">Our {branchName} specialists will review your request and contact you shortly.</p>
+          <h4 className="text-2xl font-black uppercase tracking-tight text-white mb-2">Request Received</h4>
+          <p className="text-gray-400">Our {branchName} team will call you back during business hours. Need help sooner? Call {BUSINESS.phoneDisplay}.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Subject Matter Partner</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Name</label>
               <input name="fullName" required type="text" placeholder="Full Name" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
             </div>
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Organization</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Company</label>
               <input name="company" required type="text" placeholder="Company Name" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Communication Channel</label>
-              <input name="email" required type="email" placeholder="Email Address" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Phone</label>
+              <input name="phone" required type="tel" autoComplete="tel" placeholder="Phone Number" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
             </div>
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Project Classification</label>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
+              <input name="email" required type="email" autoComplete="email" placeholder="Email Address" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+            </div>
+          </div>
+          <div>
+            <div>
+              <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Type of Work</label>
               <select name="classification" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors">
                 <option>New Installation</option>
                 <option>Retrofit / Upgrade</option>
@@ -128,7 +138,7 @@ const BranchContactForm = ({ branchName }: { branchName: string }) => {
             </div>
           </div>
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Deployment Specifications</label>
+            <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Project Details</label>
             <textarea name="message" required rows={4} placeholder="Tell us about your project requirements..." className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors align-top"></textarea>
           </div>
           <button 
@@ -136,7 +146,7 @@ const BranchContactForm = ({ branchName }: { branchName: string }) => {
             className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group active:scale-95 transition-transform"
           >
             <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-              Submit Technical Inquiry <ArrowRight className="h-4 w-4 text-race-red transform group-hover:translate-x-1 transition-transform" />
+              Request a Call Back <ArrowRight className="h-4 w-4 text-race-red transform group-hover:translate-x-1 transition-transform" />
             </span>
           </button>
         </form>
@@ -161,23 +171,20 @@ export const Branch = () => {
   }
 
   const Icon = branch.icon;
+  const seo = branchSeo[id!];
 
   return (
     <div className="flex-1 w-full relative pb-20">
       <Helmet>
         <title>{`${branch.title} | Zambrano Electric | Hereford, TX`}</title>
-        <meta name="description" content={`${branch.description.substring(0, 150)}... Contact Zambrano Electric in Hereford, TX for ${branch.title.toLowerCase()} services.`} />
+        <meta name="description" content={seo.metaDescription} />
         <link rel="canonical" href={`https://zambranoelectric.com/branch/${id}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
             "name": `${branch.title}`,
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Zambrano Electric LLC",
-              "url": "https://zambranoelectric.com"
-            },
+            "provider": { "@id": BUSINESS_ID },
             "description": `${branch.description}`,
             "areaServed": ["Hereford, TX", "Amarillo, TX", "Texas Panhandle"],
             "url": `https://zambranoelectric.com/branch/${id}`
@@ -185,6 +192,12 @@ export const Branch = () => {
         </script>
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema(seo.faqs))}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema([{ name: branch.title, path: `/branch/${id}` }]))}
         </script>
       </Helmet>
       
@@ -223,25 +236,23 @@ export const Branch = () => {
               <span className="w-10 h-[2px] bg-race-red block"></span>
               Overview
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-10 font-medium">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6 font-medium">
               {branch.description}
             </p>
+            {seo.details.map((para) => (
+              <p key={para} className="text-gray-400 leading-relaxed mb-6">{para}</p>
+            ))}
+            <div className="mb-4" />
             
             <div className="p-8 glassmorphism border-l-4 border-l-metal mb-12">
-              <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-3">Safety Protocol & Compliance</h3>
+              <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-3">Safety & Compliance</h3>
               <p className="text-sm text-gray-400 font-mono tracking-tight leading-relaxed">
-                All deep-earth operations are executed under strict OSHA compliance and heavy-duty subterranean safety standards. We manage subsurface risk so your timeline remains intact.
+                {seo.safety}
               </p>
             </div>
 
-            <Link 
-              to="/schedule" 
-              className="relative px-12 py-6 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-2xl border border-white/20 active:scale-95 inline-block"
-            >
-              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Initiate Project Protocol <ArrowRight className="h-5 w-5 text-race-red" />
-              </span>
-            </Link>
+            <CallButton label={`Call to Book ${branch.title} Work`} />
+            <CallReassurance className="mt-5" />
           </div>
 
           <div className="lg:col-span-7">
@@ -265,14 +276,23 @@ export const Branch = () => {
           </div>
         </div>
 
-        {/* Contact Form for specific branches */}
-        {(id === 'electrical' || id === 'underground' || id === 'compressed-air') && (
-          <div className="mt-20">
-             <div className="max-w-3xl mx-auto">
-                <BranchContactForm branchName={branch.title} />
-             </div>
+        {/* FAQ */}
+        <section className="mt-12 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic mb-8 text-[#E4E3E0]">
+            {branch.title} <span className="text-race-red">FAQ</span>
+          </h2>
+          <FaqList faqs={seo.faqs} />
+        </section>
+
+        {/* Call first, form as fallback */}
+        <div className="mt-20 max-w-3xl mx-auto">
+          <div className="glassmorphism p-8 mb-10 text-center border-l-4 border-l-race-red">
+            <h2 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Ready to get on the schedule?</h2>
+            <p className="text-gray-400 mb-6">Call and talk to our team about your {branch.title.toLowerCase()} project. We’ll set up a site visit and get you a free, itemized estimate.</p>
+            <CallButton />
           </div>
-        )}
+          <BranchContactForm branchName={branch.title} />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, Zap, Target, ShieldAlert, Phone } from 'lucide-react';
+import { Zap, Target, ShieldAlert } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CallButton, CallReassurance } from '../ui/CallButton';
 
 export const Hero = () => {
   return (
@@ -28,7 +29,7 @@ export const Hero = () => {
       <div className="absolute inset-x-0 h-[3px] bg-white/10 z-20 animate-scan blur-[1px] pointer-events-none" />
       
       {/* HUD Frame / Viewport */}
-      <div className="absolute inset-8 z-30 border border-white/10 pointer-events-none隐 hidden md:block">
+      <div className="absolute inset-8 z-30 border border-white/10 pointer-events-none hidden md:block">
         <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/30" />
         <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-white/30" />
         <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-white/30" />
@@ -93,22 +94,16 @@ export const Hero = () => {
                 Premier industrial and commercial electrical contractors specializing in heavy-duty infrastructure, precision excavation, and critical engine systems for high-pressure environments.
               </p>
 
-              <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
-                <a 
-                  href="tel:8065767703" 
-                  className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20"
-                >
-                  <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                    <Phone className="h-4 w-4 fill-current text-race-red" /> Call Us Now
-                  </span>
-                </a>
+              <div className="flex flex-wrap gap-6 justify-center lg:justify-start items-center">
+                <CallButton />
                 <a 
                   href="#branches" 
-                  className="group relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm transition-all skew-x-[-10deg] border border-white/20 shadow-xl"
+                  className="group relative px-8 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-xs transition-all skew-x-[-10deg] border border-white/20 shadow-xl"
                 >
-                  <span className="inline-block skew-x-[10deg]">Explore Coverage</span>
+                  <span className="inline-block skew-x-[10deg]">See Our Services</span>
                 </a>
               </div>
+              <CallReassurance className="mt-6 text-white/80 text-center lg:text-left" />
             </motion.div>
           </motion.div>
         </div>

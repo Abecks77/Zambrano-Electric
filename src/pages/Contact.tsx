@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Search, CheckCircle2 } from 'lucide-react';
 import { localBusinessSchema } from '../lib/schemas';
+import { CallButton, CallReassurance } from '../components/ui/CallButton';
+import { BUSINESS } from '../lib/business';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -55,10 +57,10 @@ export const Contact = () => {
         <div className="mb-16">
           <h1 className="text-sm font-black uppercase tracking-[0.3em] mb-4 flex items-center gap-4">
             <span className="w-10 h-[2px] bg-race-red block"></span>
-            Organization Overview
+            Contact Zambrano Electric
           </h1>
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 max-w-4xl">
-            Engineered for Extreme Reliability
+            Call to Book Your Appointment
           </h2>
           <p className="text-gray-300 max-w-3xl text-lg font-medium leading-relaxed">
             Founded on the principles of extreme reliability and industrial-grade craftsmanship, Zambrano Electric engineers solutions for the most demanding environments. We don't just build systems; we build the infrastructure that powers progress.
@@ -77,7 +79,7 @@ export const Contact = () => {
                   <MapPin className="h-6 w-6 text-race-red" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Facility Address</h3>
+                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Address</h3>
                   <p className="text-gray-400">3815 N Progressive Rd <br/>Hereford, TX 79045</p>
                 </div>
               </div>
@@ -87,8 +89,8 @@ export const Contact = () => {
                   <Phone className="h-6 w-6 text-race-red" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Dispatch & Support</h3>
-                  <p className="text-gray-400">Main: (806) 576-7703<br/>Emergency 24/7: (806) 576-7703</p>
+                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Phone</h3>
+                  <p className="text-gray-400">Main: <a href={BUSINESS.phoneHref} className="text-white font-bold hover:text-race-red">{BUSINESS.phoneDisplay}</a><br/>Office: {BUSINESS.hoursDisplay}<br/>Emergency: answered 24/7</p>
                 </div>
               </div>
 
@@ -97,27 +99,35 @@ export const Contact = () => {
                   <Mail className="h-6 w-6 text-race-red" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Electronic Comm</h3>
-                  <p className="text-gray-400">jz@zambranoelectric.com</p>
+                  <h3 className="font-bold text-white uppercase tracking-widest text-sm mb-1">Email</h3>
+                  <p className="text-gray-400"><a href={`mailto:${BUSINESS.email}`} className="hover:text-race-red">{BUSINESS.email}</a></p>
                 </div>
               </div>
+            </div>
+            <div className="flex flex-col items-start gap-4">
+              <CallButton />
+              <CallReassurance />
             </div>
           </div>
 
           {/* General Inquiry Form */}
           <div>
-             <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-white mb-6">General Inquiry</h2>
+             <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-white mb-6">Or Request a Call Back</h2>
              {submitted ? (
                <div className="glassmorphism p-12 text-center border-l-4 border-l-race-red">
                   <CheckCircle2 className="h-16 w-16 text-race-red mx-auto mb-6" />
-                  <h2 className="text-2xl font-display font-bold uppercase tracking-widest text-white mb-4">Transmission Success</h2>
-                  <p className="text-gray-400 font-mono text-sm leading-relaxed">Your data has been successfully routed to our dispatch terminal. An operative will contact you as soon as the project scope is analyzed.</p>
+                  <h2 className="text-2xl font-display font-bold uppercase tracking-widest text-white mb-4">Request Received</h2>
+                  <p className="text-gray-400 font-mono text-sm leading-relaxed">Thanks — we’ll call you back during business hours. Need help sooner? Call {BUSINESS.phoneDisplay}.</p>
                </div>
              ) : (
                <form onSubmit={handleSubmit} className="glassmorphism p-8">
                   <div className="mb-6">
                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Name</label>
                     <input name="name" required type="text" className="w-full bg-charcoal border border-metal focus:border-race-red text-white p-3 outline-none transition-colors" />
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Phone</label>
+                    <input name="phone" required type="tel" autoComplete="tel" className="w-full bg-charcoal border border-metal focus:border-race-red text-white p-3 outline-none transition-colors" />
                   </div>
                   <div className="mb-6">
                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
@@ -132,7 +142,7 @@ export const Contact = () => {
                     className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group active:scale-95 transition-transform"
                   >
                     <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                      Send Transmission <Search className="h-4 w-4 text-race-red" />
+                      Request a Call Back <Search className="h-4 w-4 text-race-red" />
                     </span>
                   </button>
                </form>

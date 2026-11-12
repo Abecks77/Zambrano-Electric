@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Calendar, Search, ArrowRight, ShieldAlert } from 'lucide-react';
+import { Search, ArrowRight, Phone, Clock, CheckCircle2 } from 'lucide-react';
+import { CallButton } from '../ui/CallButton';
+import { BUSINESS } from '../../lib/business';
 
 export const HomeContactBooking = () => {
-    const [submitted, setSubmitted] = useState(false);
     const [generalInquirySubmitted, setGeneralInquirySubmitted] = useState(false);
 
     const handleWebhookSubmit = async (formData: FormData, formType: string) => {
@@ -25,12 +26,6 @@ export const HomeContactBooking = () => {
       }
     };
 
-    const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      const success = await handleWebhookSubmit(new FormData(e.currentTarget), 'Home Slot Booking');
-      if (success) setSubmitted(true);
-    };
-
     const handleGeneralSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const success = await handleWebhookSubmit(new FormData(e.currentTarget), 'Home General Inquiry');
@@ -38,16 +33,16 @@ export const HomeContactBooking = () => {
     };
 
     return (
-      <section className="pt-24 pb-32 bg-transparent relative">
+      <section id="contact" className="pt-24 pb-32 bg-transparent relative scroll-mt-28">
 
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-4 text-[#E4E3E0]">
-                Initiate <span className="text-race-red">Dispatch</span>
+                Book Your <span className="text-race-red">Appointment</span>
                 </h2>
                 <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-                Submit an inquiry or schedule an immediate consultation with out project managers.
+                The fastest way to get on our schedule is a phone call. Prefer to write? Send a message and we’ll call you back.
                 </p>
             </div>
 
@@ -56,14 +51,14 @@ export const HomeContactBooking = () => {
                 {/* General Contact Form */}
                 <div className="glassmorphism p-8">
                     <h3 className="text-xl font-black uppercase tracking-widest text-[#E4E3E0] mb-6 border-b border-[#4A4A4A]/50 pb-4 flex items-center gap-3">
-                        <Search className="h-5 w-5 text-race-red" /> Direct Communication
+                        <Search className="h-5 w-5 text-race-red" /> Request a Call Back
                     </h3>
                     
                     {generalInquirySubmitted ? (
                         <div className="h-full flex flex-col items-center justify-center text-center p-8">
                             <ArrowRight className="h-12 w-12 text-race-red mb-4" />
-                            <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">Transmission Success</h4>
-                            <p className="text-sm text-gray-400 font-mono">Your signal has been received. Our heavy-duty team will respond shortly.</p>
+                            <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">Request Received</h4>
+                            <p className="text-sm text-gray-400 font-mono">Thanks — we’ll call you back during business hours. Need help sooner? Call {BUSINESS.phoneDisplay}.</p>
                         </div>
                     ) : (
                         <form onSubmit={handleGeneralSubmit} className="space-y-6">
@@ -77,12 +72,18 @@ export const HomeContactBooking = () => {
                                     <input name="company" required type="text" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
                                 </div>
                             </div>
-                            <div>
-                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
-                                <input name="email" required type="email" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label htmlFor="home-phone" className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Phone</label>
+                                    <input id="home-phone" name="phone" required type="tel" autoComplete="tel" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                                </div>
+                                <div>
+                                    <label htmlFor="home-email" className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
+                                    <input id="home-email" name="email" required type="email" autoComplete="email" className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors" />
+                                </div>
                             </div>
                             <div>
-                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Transmission Message</label>
+                                <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">What do you need done?</label>
                                 <textarea name="message" required rows={4} className="w-full bg-[#0A0A0A] border border-[rgba(74,74,74,0.5)] focus:border-race-red text-white p-3 outline-none transition-colors align-top"></textarea>
                             </div>
                             <button 
@@ -90,88 +91,36 @@ export const HomeContactBooking = () => {
                                 className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-xl border border-white/20 group"
                             >
                                 <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                                    Send General Inquiry <ArrowRight className="h-4 w-4 text-race-red" />
+                                    Request a Call Back <ArrowRight className="h-4 w-4 text-race-red" />
                                 </span>
                             </button>
                         </form>
                     )}
                 </div>
 
-                {/* Booking Calendar Integration */}
-                <div className="glassmorphism p-8 bg-[#0A0A0A]/40">
+                {/* Book by phone */}
+                <div className="glassmorphism p-8 bg-[#0A0A0A]/40 border-l-4 border-l-race-red flex flex-col order-first">
                     <h3 className="text-xl font-black uppercase tracking-widest text-[#E4E3E0] mb-6 border-b border-[#4A4A4A]/50 pb-4 flex items-center gap-3">
-                        <Calendar className="h-5 w-5 text-race-red" /> Secure a Slot
+                        <Phone className="h-5 w-5 text-race-red" /> Book by Phone
                     </h3>
-
-                    {submitted ? (
-                        <div className="h-full flex flex-col items-center justify-center text-center p-8">
-                            <ShieldAlert className="h-12 w-12 text-race-red mb-4 animate-pulse" />
-                            <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">Slot Locked</h4>
-                            <p className="text-sm text-gray-400 font-mono">Your consultation slot has been reserved. Our deployment terminal will confirm via email.</p>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleBookingSubmit} className="space-y-6 flex flex-col">
-                            
-                            <div className="border border-[rgba(74,74,74,0.5)] bg-[#050505] overflow-hidden">
-                                <div className="p-4 border-b border-[rgba(74,74,74,0.5)]">
-                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-2">
-                                        Target Date Selection
-                                    </label>
-                                    <div className="grid grid-cols-7 gap-1 text-center mb-1">
-                                        {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                                        <div key={i} className="text-[10px] font-bold text-gray-500 py-1">{day}</div>
-                                        ))}
-                                    </div>
-                                    <div className="grid grid-cols-7 gap-1 text-center">
-                                        {Array.from({ length: 28 }).map((_, i) => {
-                                        const day = i + 1;
-                                        const isPast = day < 5;
-                                        const isWeekend = (i + 1) % 7 === 0 || (i + 1) % 7 === 1; 
-                                        const isDisabled = isPast || isWeekend;
-                                        
-                                        return (
-                                            <label key={i} className={`relative block p-2 cursor-pointer ${isDisabled ? 'opacity-30 cursor-not-allowed bg-[#111]' : 'hover:bg-race-red/20 bg-[#161616]'}`}>
-                                            <input type="radio" name="proposedDateHome" value={day} className="peer sr-only" disabled={isDisabled} defaultChecked={day === 14} />
-                                            <span className={`text-sm tracking-tighter ${isDisabled ? 'text-gray-600' : 'text-[#E4E3E0] font-bold'} peer-checked:text-race-red`}>{day}</span>
-                                            <div className="absolute inset-0 border border-transparent peer-checked:border-race-red pointer-events-none"></div>
-                                            </label>
-                                        );
-                                        })}
-                                    </div>
-                                </div>
-
-                                <div className="p-4 bg-charcoal/30 space-y-4">
-                                    <label className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 flex items-center gap-2">
-                                        Deployment Window
-                                    </label>
-                                    <div className="flex gap-4">
-                                        <label className="flex-1 relative cursor-pointer">
-                                            <input type="radio" name="timeOfDayHome" value="morning" className="peer sr-only" defaultChecked />
-                                            <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-[10px] font-bold uppercase tracking-widest text-gray-500 peer-checked:text-white">
-                                                AM Slot
-                                            </div>
-                                        </label>
-                                        <label className="flex-1 relative cursor-pointer">
-                                            <input type="radio" name="timeOfDayHome" value="afternoon" className="peer sr-only" />
-                                            <div className="p-3 border border-metal bg-charcoal peer-checked:border-race-red peer-checked:bg-race-red/10 transition-colors text-center text-[10px] font-bold uppercase tracking-widest text-gray-500 peer-checked:text-white">
-                                                PM Slot
-                                            </div>
-                                        </label>
-                                    </div>
-
-                                    <button 
-                                        type="submit" 
-                                        className="w-full relative px-10 py-5 bg-metal-plate text-white font-black uppercase tracking-widest text-sm shadow-xl border border-white/20 active:scale-95 transition-transform"
-                                    >
-                                        <span className="relative z-10 inline-flex items-center gap-3">
-                                            Lock In Deployment Date <Calendar className="h-4 w-4 text-race-red" />
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-                    )}
+                    <ul className="space-y-4 text-sm text-gray-300 mb-8">
+                        {[
+                          'Talk directly with our team — no call center',
+                          'Describe the job and we’ll set a site visit or estimate time',
+                          'Free estimates on commercial & industrial projects',
+                          'Emergency? Our line is answered 24/7',
+                        ].map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-race-red flex-shrink-0 mt-0.5" /> {item}
+                          </li>
+                        ))}
+                    </ul>
+                    <div className="mt-auto flex flex-col items-center gap-4">
+                        <CallButton className="w-full" />
+                        <p className="flex items-center gap-2 text-[11px] uppercase tracking-widest text-gray-400 font-bold">
+                            <Clock className="h-4 w-4 text-race-red" /> Office: {BUSINESS.hoursDisplay} · {BUSINESS.emergencyDisplay}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

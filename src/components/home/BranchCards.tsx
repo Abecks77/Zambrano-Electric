@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, HardHat, Wind, ArrowRight, Terminal, Activity, ShieldCheck } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CallButton } from '../ui/CallButton';
 
 const branches = [
   {
@@ -131,16 +132,10 @@ export const BranchCards = () => {
           })}
         </div>
 
-        {/* New CTA: View All Capabilities */}
-        <div className="mt-16 flex justify-center">
-            <Link 
-              to="/services" 
-              className="group relative px-12 py-6 bg-metal-plate text-white font-black uppercase tracking-widest text-sm skew-x-[-10deg] transition-all shadow-2xl border border-white/20"
-            >
-              <span className="relative z-10 inline-flex items-center gap-3 skew-x-[10deg]">
-                Browse All Technical Capabilities <ArrowRight className="h-5 w-5 text-race-red" />
-              </span>
-            </Link>
+        {/* CTA: not sure which division you need */}
+        <div className="mt-16 flex flex-col items-center gap-4 text-center">
+            <p className="text-sm text-gray-400">Not sure which service you need? Tell us about the job and we’ll point you to the right crew.</p>
+            <CallButton label="Call to Talk Through Your Project" />
         </div>
 
         {/* Global Footer Hub */}
@@ -160,7 +155,7 @@ export const BranchCards = () => {
                 </div>
             </div>
             <div className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-                ©2024 ZAMBRANO_INDUSTRIAL_SYSTEMS
+                ©{new Date().getFullYear()} ZAMBRANO ELECTRIC LLC
             </div>
         </div>
       </div>

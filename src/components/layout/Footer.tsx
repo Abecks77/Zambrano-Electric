@@ -1,12 +1,14 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { BUSINESS } from '../../lib/business';
+import { serviceAreas } from '../../lib/content';
 
 export const Footer = () => {
   return (
     <footer className="bg-charcoal relative overflow-hidden pb-12 border-b-[8px] border-b-race-red">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           
           <div className="col-span-1 md:col-span-1">
              <Link to="/" className="flex items-center mb-4 group inline-flex" aria-label="Zambrano Electric Home">
@@ -34,7 +36,9 @@ export const Footer = () => {
           <div>
             <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/contact" className="hover:text-race-red transition-colors">About Us</Link></li>
+              <li><Link to="/about" className="hover:text-race-red transition-colors">About Us</Link></li>
+              <li><Link to="/faq" className="hover:text-race-red transition-colors">FAQ</Link></li>
+              <li><Link to="/schedule" className="hover:text-race-red transition-colors">Schedule Service</Link></li>
               <li><Link to="/contact" className="hover:text-race-red transition-colors">Contact</Link></li>
               <li><Link to="/terms-of-service" className="hover:text-race-red transition-colors">Terms of Service</Link></li>
               <li><Link to="/privacy-policy" className="hover:text-race-red transition-colors">Privacy Policy</Link></li>
@@ -42,10 +46,20 @@ export const Footer = () => {
           </div>
 
           <div>
+            <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4"><Link to="/service-areas" className="hover:text-race-red">Service Areas</Link></h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              {serviceAreas.map((a) => (
+                <li key={a.slug}><Link to={`/service-areas/${a.slug}`} className="hover:text-race-red transition-colors">{a.city}, TX</Link></li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li className="flex items-center gap-2 font-mono"><Phone className="h-4 w-4 text-race-red" /> (806) 576-7703</li>
-              <li className="flex items-center gap-2 font-mono"><Mail className="h-4 w-4 text-race-red" /> jz@zambranoelectric.com</li>
+              <li><a href={BUSINESS.phoneHref} className="flex items-center gap-2 font-mono text-white font-bold hover:text-race-red"><Phone className="h-4 w-4 text-race-red" /> {BUSINESS.phoneDisplay}</a></li>
+              <li className="text-xs">{BUSINESS.hoursDisplay} · 24/7 emergency</li>
+              <li><a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 font-mono hover:text-race-red"><Mail className="h-4 w-4 text-race-red" /> {BUSINESS.email}</a></li>
               <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-race-red mt-1" /> 3815 N Progressive Rd<br/>Hereford, TX 79045</li>
             </ul>
           </div>
