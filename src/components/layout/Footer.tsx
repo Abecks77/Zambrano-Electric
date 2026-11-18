@@ -57,9 +57,9 @@ export const Footer = () => {
           <div>
             <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4">Contact</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href={BUSINESS.phoneHref} className="flex items-center gap-2 font-mono text-white font-bold hover:text-race-red"><Phone className="h-4 w-4 text-race-red" /> {BUSINESS.phoneDisplay}</a></li>
-              <li className="text-xs">{BUSINESS.hoursDisplay} · 24/7 emergency</li>
-              <li><a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 font-mono hover:text-race-red"><Mail className="h-4 w-4 text-race-red" /> {BUSINESS.email}</a></li>
+              <li><a href={BUSINESS.phoneHref} className="flex items-center gap-2 text-white font-bold hover:text-race-red"><Phone className="h-4 w-4 text-race-red" /> {BUSINESS.phoneDisplay}</a></li>
+              <li className="text-xs leading-relaxed">{BUSINESS.hoursDisplay}<br />24/7 emergency line</li>
+              <li><a href={`mailto:${BUSINESS.email}`} className="flex items-center gap-2 hover:text-race-red break-all"><Mail className="h-4 w-4 text-race-red" /> {BUSINESS.email}</a></li>
               <li className="flex items-start gap-2"><MapPin className="h-4 w-4 text-race-red mt-1" /> 3815 N Progressive Rd<br/>Hereford, TX 79045</li>
             </ul>
           </div>

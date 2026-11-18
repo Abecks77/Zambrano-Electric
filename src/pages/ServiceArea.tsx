@@ -46,7 +46,7 @@ export const ServiceArea = () => {
         </script>
       </Helmet>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
         <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-widest text-gray-500 mb-8">
           <Link to="/" className="hover:text-white">Home</Link> / <Link to="/service-areas" className="hover:text-white">Service Areas</Link> / <span className="text-gray-300">{area.city}, TX</span>
         </nav>
@@ -92,7 +92,7 @@ export const ServiceArea = () => {
         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic mb-8">
           {area.city} <span className="text-race-red">FAQ</span>
         </h2>
-        <FaqList faqs={area.faqs} />
+        <div className="max-w-4xl"><FaqList faqs={area.faqs} /></div>
 
         <div className="glassmorphism p-8 mt-16 text-center border-l-4 border-l-race-red">
           <h2 className="text-2xl font-black uppercase tracking-tight mb-3">Need an electrician in {area.city}?</h2>

@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Search, CheckCircle2 } from 'lucide-react';
 import { localBusinessSchema } from '../lib/schemas';
 import { CallButton, CallReassurance } from '../components/ui/CallButton';
 import { BUSINESS } from '../lib/business';
+import { PageHeader } from '../components/ui/Heading';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -54,24 +55,15 @@ export const Contact = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-white">
         
-        <div className="mb-16">
-          <h1 className="text-sm font-black uppercase tracking-[0.3em] mb-4 flex items-center gap-4">
-            <span className="w-10 h-[2px] bg-race-red block"></span>
-            Contact Zambrano Electric
-          </h1>
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 max-w-4xl">
-            Call to Book Your Appointment
-          </h2>
-          <p className="text-gray-300 max-w-3xl text-lg font-medium leading-relaxed">
-            Founded on the principles of extreme reliability and industrial-grade craftsmanship, Zambrano Electric engineers solutions for the most demanding environments. We don't just build systems; we build the infrastructure that powers progress.
-          </p>
-        </div>
+        <PageHeader eyebrow="Contact Zambrano Electric" title="Call to Book Your" accent="Appointment">
+          <p>Call {BUSINESS.phoneDisplay} to set up a site visit or free estimate. The office is open {BUSINESS.hoursDisplay}, and our line is answered 24/7 for emergencies.</p>
+        </PageHeader>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Contact Info */}
           <div className="space-y-8">
-            <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-white mb-6">Headquarters</h2>
+            <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-[#E4E3E0] mb-6">Visit or Call</h2>
             
             <div className="glassmorphism p-8 flex flex-col gap-6">
               <div className="flex items-start gap-4">
@@ -112,7 +104,7 @@ export const Contact = () => {
 
           {/* General Inquiry Form */}
           <div>
-             <h2 className="text-2xl font-display font-bold uppercase tracking-wider text-white mb-6">Or Request a Call Back</h2>
+             <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter text-[#E4E3E0] mb-6">Or Request a Call Back</h2>
              {submitted ? (
                <div className="glassmorphism p-12 text-center border-l-4 border-l-race-red">
                   <CheckCircle2 className="h-16 w-16 text-race-red mx-auto mb-6" />

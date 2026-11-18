@@ -1,10 +1,11 @@
 import React from 'react';
 import { ShieldCheck, Map, Zap, Factory } from 'lucide-react';
 import { CallButton } from '../ui/CallButton';
+import { SectionHeading } from '../ui/Heading';
 
 export const SeoSection = () => {
   return (
-    <section className="py-24 bg-transparent relative">
+    <section className="py-20 bg-transparent relative">
 
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -12,16 +13,9 @@ export const SeoSection = () => {
           
           {/* SEO Content Block */}
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-metal-light/20 border border-[rgba(74,74,74,0.5)] mb-6 skew-x-[-10deg]">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-race-red skew-x-[10deg]">Service Area</span>
-            </div>
-            
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-6 text-[#E4E3E0]">
-              Trusted Electricians in <br />
-              <span className="text-race-red">The Texas Panhandle</span>
-            </h2>
-            
-            <div className="space-y-4 text-sm text-gray-400 leading-relaxed max-w-xl">
+            <SectionHeading eyebrow="Why Zambrano" title="Trusted Electricians in" accent="the Texas Panhandle" className="mb-8" />
+
+            <div className="space-y-4 text-base text-gray-400 leading-relaxed max-w-xl">
               <p>
                 When operations are on the line, local industries turn to <strong className="text-[#E4E3E0]">Zambrano Electric, LLC</strong>, your go-to <strong className="text-gray-200">commercial electrician Hereford TX</strong> and expert <strong className="text-gray-200">industrial electrician Amarillo</strong> provider. 
               </p>
@@ -75,7 +69,7 @@ export const SeoSection = () => {
                 ].map((keyword, index) => (
                   <li key={index} className="flex items-center gap-3 group">
                     <Zap className="h-4 w-4 text-race-red group-hover:scale-110 transition-transform" />
-                    <span className="text-xs text-gray-300 font-mono uppercase tracking-tight">{keyword}</span>
+                    <span className="text-sm text-gray-300 font-semibold uppercase tracking-wide">{keyword}</span>
                   </li>
                 ))}
               </ul>
@@ -84,7 +78,7 @@ export const SeoSection = () => {
                 <ShieldCheck className="h-8 w-8 text-race-red" />
                 <div>
                   <div className="text-xs font-black uppercase text-[#E4E3E0]">Licensed & Insured</div>
-                  <div className="text-[10px] text-gray-500 font-mono uppercase">Texas State Certified</div>
+                  <div className="text-[10px] text-gray-500 uppercase tracking-widest">Texas State Certified</div>
                 </div>
               </div>
 
@@ -92,7 +86,6 @@ export const SeoSection = () => {
             
             {/* Design accents */}
             <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-race-red opacity-50"></div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-[#4A4A4A] opacity-50"></div>
           </div>
 
         </div>

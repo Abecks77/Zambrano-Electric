@@ -3,6 +3,7 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { homeFaqs } from '../../lib/content';
 import { CallButton } from '../ui/CallButton';
+import { SectionHeading } from '../ui/Heading';
 
 interface FAQ {
   id: number;
@@ -39,7 +40,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ faq, isOpen, onToggle }) => {
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="p-6 pt-0 text-xs text-gray-400 leading-relaxed max-w-lg">
+        <div className="p-6 pt-0 text-sm text-gray-400 leading-relaxed max-w-lg">
           {faq.answer}
         </div>
       </div>
@@ -60,21 +61,13 @@ export const FaqSection = () => {
   const rightFaqs = faqs.filter(faq => faq.side === 'right');
 
   return (
-    <section className="py-24 bg-transparent relative">
+    <section className="py-20 bg-transparent relative">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center p-3 bg-metal rounded-full mb-6 border border-metal-light">
-            <HelpCircle className="h-6 w-6 text-race-red" />
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-4 text-[#E4E3E0]">
-            Frequently Asked <span className="text-race-red">Questions</span>
-          </h2>
-          <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-            Operational details and capabilities for our industrial contracting services.
-          </p>
-        </div>
+        <SectionHeading eyebrow="FAQ" title="Frequently Asked" accent="Questions" align="center">
+          Straight answers about our services, safety and how we bid projects.
+        </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Column */}
@@ -104,7 +97,7 @@ export const FaqSection = () => {
 
         {/* New CTA: Still Have Questions? */}
         <div className="mt-16 flex flex-col items-center">
-            <p className="text-[10px] uppercase font-bold tracking-widest text-gray-500 mb-6 font-mono">Have a question we didn’t answer? <Link to="/faq" className="text-race-red underline">See all FAQs</Link> or call us.</p>
+            <p className="text-sm text-gray-400 mb-6">Have a question we didn’t answer? <Link to="/faq" className="text-race-red underline">See all FAQs</Link> or call us.</p>
             <CallButton label="Call & Ask Us Directly" />
         </div>
 

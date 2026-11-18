@@ -15,7 +15,7 @@ export const ServiceAreas = () => (
       <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([{ name: 'Service Areas', path: '/service-areas' }]))}</script>
     </Helmet>
-    <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
       <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.95] mb-6">
         Texas Panhandle <span className="text-race-red">Service Areas</span>
       </h1>

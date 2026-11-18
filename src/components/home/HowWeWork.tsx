@@ -1,6 +1,7 @@
 import React from 'react';
 import { ClipboardCheck, PenTool, HardHat, Activity, ArrowRight } from 'lucide-react';
 import { CallButton } from '../ui/CallButton';
+import { SectionHeading } from '../ui/Heading';
 
 const steps = [
   {
@@ -31,24 +32,14 @@ const steps = [
 
 export const HowWeWork = () => {
   return (
-    <section className="py-24 bg-transparent relative">
+    <section className="py-20 bg-transparent relative">
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="mb-16 md:flex justify-between items-end">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-metal-light/20 border border-[rgba(74,74,74,0.5)] mb-6 skew-x-[-10deg]">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-race-red skew-x-[10deg]">Standard Operating Procedure</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-4 text-[#E4E3E0]">
-              Operational <span className="text-race-red">Workflow</span>
-            </h2>
-            <p className="text-gray-400 text-sm">
-              We execute complex industrial projects through a highly-structured and secure 4-phase deployment protocol, prioritizing safety and precision at every step.
-            </p>
-          </div>
-        </div>
+        <SectionHeading eyebrow="How We Work" title="Operational" accent="Workflow" align="center">
+          Every project follows the same four phases, so you know what happens next and when.
+        </SectionHeading>
 
         {/* Workflow Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">

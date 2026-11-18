@@ -37,9 +37,12 @@ export const CallButton = ({
   </a>
 );
 
-// Short reassurance line shown under call buttons.
+// Short reassurance line shown under call buttons. Each phrase stays on one
+// line so wrapping happens between phrases, never mid-phrase.
 export const CallReassurance = ({ className }: { className?: string }) => (
-  <p className={cn('text-[11px] uppercase tracking-widest text-gray-300 font-bold', className)}>
-    Talk to our team directly · Free estimates · {BUSINESS.hoursDisplay} · {BUSINESS.emergencyDisplay}
-  </p>
+  <ul className={cn('flex flex-wrap gap-x-4 gap-y-1 text-[11px] uppercase tracking-widest text-gray-300 font-bold', className)}>
+    {['Talk to our team directly', 'Free estimates', BUSINESS.hoursDisplay, BUSINESS.emergencyDisplay].map((item) => (
+      <li key={item} className="whitespace-nowrap flex items-center gap-2 before:content-[''] before:w-1 before:h-1 before:bg-race-red before:rounded-full">{item}</li>
+    ))}
+  </ul>
 );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, ArrowRight, Phone, Clock, CheckCircle2 } from 'lucide-react';
 import { CallButton } from '../ui/CallButton';
 import { BUSINESS } from '../../lib/business';
+import { SectionHeading } from '../ui/Heading';
 
 export const HomeContactBooking = () => {
     const [generalInquirySubmitted, setGeneralInquirySubmitted] = useState(false);
@@ -33,18 +34,13 @@ export const HomeContactBooking = () => {
     };
 
     return (
-      <section id="contact" className="pt-24 pb-32 bg-transparent relative scroll-mt-28">
+      <section id="contact" className="py-20 bg-transparent relative scroll-mt-28">
 
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-4 text-[#E4E3E0]">
-                Book Your <span className="text-race-red">Appointment</span>
-                </h2>
-                <p className="text-gray-400 text-sm max-w-2xl mx-auto">
-                The fastest way to get on our schedule is a phone call. Prefer to write? Send a message and we’ll call you back.
-                </p>
-            </div>
+            <SectionHeading eyebrow="Get Started" title="Book Your" accent="Appointment" align="center">
+              The fastest way to get on our schedule is a phone call. Prefer to write? Send a message and we’ll call you back.
+            </SectionHeading>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 

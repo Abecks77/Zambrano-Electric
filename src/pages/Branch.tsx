@@ -6,6 +6,7 @@ import { localBusinessSchema, faqSchema, breadcrumbSchema, BUSINESS_ID } from '.
 import { branchSeo } from '../lib/branchSeo';
 import { CallButton, CallReassurance } from '../components/ui/CallButton';
 import { FaqList } from '../components/ui/FaqList';
+import { SectionHeading } from '../components/ui/Heading';
 import { BUSINESS } from '../lib/business';
 
 const branchData: Record<string, any> = {
@@ -246,12 +247,12 @@ export const Branch = () => {
             
             <div className="p-8 glassmorphism border-l-4 border-l-metal mb-12">
               <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-3">Safety & Compliance</h3>
-              <p className="text-sm text-gray-400 font-mono tracking-tight leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed">
                 {seo.safety}
               </p>
             </div>
 
-            <CallButton label={`Call to Book ${branch.title} Work`} />
+            <CallButton />
             <CallReassurance className="mt-5" />
           </div>
 
@@ -276,22 +277,21 @@ export const Branch = () => {
           </div>
         </div>
 
-        {/* FAQ */}
-        <section className="mt-12 max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic mb-8 text-[#E4E3E0]">
-            {branch.title} <span className="text-race-red">FAQ</span>
-          </h2>
-          <FaqList faqs={seo.faqs} />
-        </section>
+        {/* FAQ + booking, aligned to the same container as the content above */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 pt-20 border-t border-metal/30">
+          <section className="lg:col-span-5">
+            <SectionHeading title={branch.title} accent="FAQ" size="sm" className="mb-8" />
+            <FaqList faqs={seo.faqs} />
+          </section>
 
-        {/* Call first, form as fallback */}
-        <div className="mt-20 max-w-3xl mx-auto">
-          <div className="glassmorphism p-8 mb-10 text-center border-l-4 border-l-race-red">
-            <h2 className="text-2xl font-black uppercase tracking-tight text-white mb-3">Ready to get on the schedule?</h2>
-            <p className="text-gray-400 mb-6">Call and talk to our team about your {branch.title.toLowerCase()} project. We’ll set up a site visit and get you a free, itemized estimate.</p>
-            <CallButton />
+          <div className="lg:col-span-7 space-y-10">
+            <div className="glassmorphism p-8 border-l-4 border-l-race-red">
+              <h2 className="text-2xl font-black uppercase italic tracking-tighter text-white mb-3">Ready to get on the schedule?</h2>
+              <p className="text-gray-400 mb-6">Call and talk to our team about your {branch.title.toLowerCase()} project. We’ll set up a site visit and get you a free, itemized estimate.</p>
+              <CallButton />
+            </div>
+            <BranchContactForm branchName={branch.title} />
           </div>
-          <BranchContactForm branchName={branch.title} />
         </div>
       </div>
     </div>

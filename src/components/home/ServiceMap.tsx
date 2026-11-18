@@ -1,29 +1,24 @@
 import React from 'react';
 import { MapPin, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { BUSINESS } from '../../lib/business';
+import { serviceAreas } from '../../lib/content';
+import { SectionHeading } from '../ui/Heading';
 
 export const ServiceMap = () => {
   return (
-    <section className="py-24 bg-transparent relative overflow-hidden">
+    <section className="py-20 bg-transparent relative overflow-hidden">
 
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center justify-center p-3 bg-metal rounded-full mb-6 border border-metal-light">
-            <Target className="h-6 w-6 text-race-red" />
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9] mb-4 text-[#E4E3E0]">
-            Service Zone & <span className="text-race-red">Dispatch Area</span>
-          </h2>
-          <p className="text-gray-400 text-sm">
-            Based in Hereford, Texas. Rapidly deploying industrial crews across the entire Texas Panhandle and surrounding regional manufacturing hubs.
-          </p>
-        </div>
+        <SectionHeading eyebrow="Service Area" title="Service Zone &" accent="Dispatch Area" align="center">
+          Based in Hereford, Texas, with crews dispatched across the Texas Panhandle and surrounding manufacturing hubs.
+        </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           
           {/* Radar / Map GUI */}
-          <div className="glassmorphism p-8 relative group skew-x-[2deg] flex flex-col h-full">
+          <div className="glassmorphism p-8 relative group flex flex-col h-full">
             <div className="flex-grow aspect-video bg-[#050505] border border-metal relative overflow-hidden flex items-center justify-center mb-8">
               {/* Radar Grid */}
               <div className="absolute inset-0" style={{
@@ -75,19 +70,23 @@ export const ServiceMap = () => {
           <div>
             <div className="glassmorphism p-8 border-l-4 border-l-race-red h-full flex flex-col">
                <h3 className="text-lg font-black uppercase tracking-widest text-[#E4E3E0] mb-6 pb-4">
-                  Primary Coverage Nodes
+                  Primary Coverage Area
                </h3>
-               <ul className="grid grid-cols-2 gap-4 text-sm text-gray-400 mb-8 font-mono tracking-tight">
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Hereford</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Amarillo</li>
-                   <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-race-red"/> Plainview</li>
+               <ul className="grid grid-cols-2 gap-4 text-base text-gray-300 mb-8">
+                   {serviceAreas.map((a) => (
+                     <li key={a.slug}>
+                       <Link to={`/service-areas/${a.slug}`} className="flex items-center gap-3 hover:text-race-red transition-colors">
+                         <MapPin className="h-4 w-4 text-race-red"/> {a.city}, TX
+                       </Link>
+                     </li>
+                   ))}
                </ul>
 
                <div className="mt-auto">
                  <div className="p-5 bg-[rgba(255,0,0,0.05)] border border-race-red/30">
-                    <h4 className="text-[10px] font-black uppercase text-race-red tracking-[0.2em] mb-2">Out of Bounds Deployment</h4>
-                    <p className="text-[10px] text-gray-300 font-mono tracking-widest leading-relaxed">
-                        For emergency deployments outside the immediate 150-mile radius, please route communications directly to our 24/7 dispatch hotline to authorize out-of-bounds heavy equipment transport.
+                    <h4 className="text-xs font-black uppercase text-race-red tracking-[0.2em] mb-2">Outside Our 150-Mile Radius?</h4>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                        For emergency work outside our 150-mile radius, call our 24/7 line and we’ll arrange crew and heavy-equipment transport.
                     </p>
                  </div>
                </div>

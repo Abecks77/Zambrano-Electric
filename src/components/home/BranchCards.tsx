@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Zap, HardHat, Wind, ArrowRight, Terminal, Activity, ShieldCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CallButton } from '../ui/CallButton';
+import { SectionHeading } from '../ui/Heading';
 
 const branches = [
   {
@@ -39,34 +40,13 @@ const branches = [
 
 export const BranchCards = () => {
   return (
-    <section id="branches" className="py-32 bg-transparent relative overflow-hidden">
+    <section id="branches" className="py-20 bg-transparent relative overflow-hidden scroll-mt-24">
       {/* Background Technical Elements */}
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-metal/10 border border-metal mb-6 skew-x-[-10deg]">
-              <span className="text-[10px] uppercase font-bold tracking-widest text-race-red skew-x-[10deg] flex items-center gap-2">
-                <ShieldCheck className="h-3 w-3" /> Division Distribution
-              </span>
-            </div>
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.85] text-[#E4E3E0] mb-6">
-              Choose Your <span className="text-race-red">Path</span>
-            </h2>
-            <p className="text-gray-500 font-mono text-xs uppercase leading-relaxed tracking-[0.1em] max-w-lg">
-              Select a core operational environment to view technical capabilities, safety protocols, and deployment logs.
-            </p>
-          </div>
-          
-          <div className="hidden lg:block">
-            <div className="grid grid-cols-2 gap-4 p-4 border border-metal bg-charcoal-light/50 backdrop-blur-sm">
-                <div className="text-[10px] font-mono text-gray-500 uppercase">Latency: <span className="text-emerald-500">2.4ms</span></div>
-                <div className="text-[10px] font-mono text-gray-500 uppercase">Uptime: <span className="text-emerald-500">99.9%</span></div>
-                <div className="text-[10px] font-mono text-gray-500 uppercase">Sector: <span className="text-[#E4E3E0]">TX-PAN</span></div>
-                <div className="text-[10px] font-mono text-gray-500 uppercase">Status: <span className="text-race-red">READY</span></div>
-            </div>
-          </div>
-        </div>
+        <SectionHeading eyebrow="Our Services" title="Choose Your" accent="Service" align="center">
+          Three divisions, one contractor. Select a service to see capabilities, safety practices and how to book.
+        </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {branches.map((branch) => {
@@ -94,9 +74,6 @@ export const BranchCards = () => {
                         <div className="text-[10px] font-mono text-[#E4E3E0] uppercase tracking-[0.2em] flex items-center gap-2">
                           <Terminal className="h-3 w-3 text-race-red" /> DIV-{branch.division}
                         </div>
-                        <div className="text-[32px] font-black italic tracking-tighter text-metal opacity-20 group-hover:opacity-10 transition-opacity absolute top-6 right-10">
-                          {branch.division}
-                        </div>
                       </div>
                       <div className="w-12 h-12 flex items-center justify-center border border-metal bg-charcoal-light text-gray-400 group-hover:text-race-red group-hover:border-race-red group-hover:scale-110 transition-all">
                         <Icon className="h-6 w-6" />
@@ -104,14 +81,10 @@ export const BranchCards = () => {
                     </div>
 
                     <div className="mb-auto">
-                      <h3 className="text-3xl font-black uppercase tracking-tight text-[#E4E3E0] mb-4 italic leading-none group-hover:text-race-red transition-colors">
+                      <h3 className="text-3xl font-black uppercase tracking-tight text-[#E4E3E0] mb-6 italic leading-none group-hover:text-race-red transition-colors">
                         {branch.title}
                       </h3>
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${branch.id === 'electrical' ? 'bg-race-red' : branch.id === 'underground' ? 'bg-blue-500' : 'bg-emerald-500'}`}></div>
-                        <span className="text-[8px] font-mono text-gray-500 uppercase tracking-widest">{branch.status} // {branch.code}</span>
-                      </div>
-                      <p className="text-gray-500 text-xs font-mono leading-relaxed mb-10 max-w-[240px]">
+                      <p className="text-gray-400 text-sm leading-relaxed mb-10">
                         {branch.description}
                       </p>
                     </div>
@@ -138,26 +111,6 @@ export const BranchCards = () => {
             <CallButton label="Call to Talk Through Your Project" />
         </div>
 
-        {/* Global Footer Hub */}
-        <div className="mt-20 flex flex-wrap justify-between items-center gap-8 pt-8 opacity-40 hover:opacity-100 transition-opacity">
-            <div className="flex gap-12">
-                <div className="space-y-1">
-                    <div className="text-[8px] font-mono text-gray-500 uppercase bold">Core Load</div>
-                    <div className="text-[10px] font-mono text-emerald-500">STABLE</div>
-                </div>
-                <div className="space-y-1">
-                    <div className="text-[8px] font-mono text-gray-500 uppercase bold">Security Protocol</div>
-                    <div className="text-[10px] font-mono text-race-red">AES-256</div>
-                </div>
-                <div className="space-y-1 hidden sm:block">
-                    <div className="text-[8px] font-mono text-gray-500 uppercase bold">Frequency</div>
-                    <div className="text-[10px] font-mono text-[#E4E3E0]">60Hz</div>
-                </div>
-            </div>
-            <div className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-                ©{new Date().getFullYear()} ZAMBRANO ELECTRIC LLC
-            </div>
-        </div>
       </div>
     </section>
   );

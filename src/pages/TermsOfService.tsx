@@ -17,21 +17,21 @@ export const TermsOfService = () => {
       
       <div className="fixed inset-0 z-0 grid-lines opacity-20 pointer-events-none"></div>
       
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-gray-300">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-gray-300">
         
         <div className="mb-12">
-          <h1 className="text-sm font-black uppercase tracking-[0.3em] mb-4 flex items-center gap-4 text-white">
+          <p className="text-xs font-black uppercase tracking-[0.3em] mb-5 flex items-center gap-4 text-gray-300">
             <span className="w-10 h-[2px] bg-race-red block"></span>
             Legal Documentation
-          </h1>
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4 text-white flex items-center gap-4">
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.95] mb-6 text-white flex items-center gap-4">
             <FileText className="h-8 w-8 text-race-red" />
             Terms of Service
-          </h2>
-          <p className="text-gray-400 font-mono text-sm">Zambrano Electric &middot; Hereford, Texas &middot; Last updated: June 11, 2026</p>
+          </h1>
+          <p className="text-gray-400 text-sm uppercase tracking-widest">Zambrano Electric &middot; Hereford, Texas &middot; Last updated: June 11, 2026</p>
         </div>
 
-        <div className="prose prose-invert prose-p:text-gray-400 prose-headings:text-white prose-headings:font-display prose-headings:uppercase prose-headings:tracking-widest prose-a:text-race-red hover:prose-a:text-white prose-strong:text-gray-200 max-w-none">
+        <div className="prose prose-invert prose-p:text-gray-400 prose-headings:text-white prose-headings:font-display prose-headings:uppercase prose-headings:tracking-widest prose-a:text-race-red hover:prose-a:text-white prose-strong:text-gray-200 max-w-3xl">
           <p className="lead text-lg mb-8">
             Welcome to Zambrano Electric ("Company," "we," "us," or "our"). These Terms of Service ("Terms") govern your use of our website and the services we provide, including any text message (SMS) communications you may receive from us. By accessing our website, contacting us, or opting in to receive messages, you agree to these Terms.
           </p>

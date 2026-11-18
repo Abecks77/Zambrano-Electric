@@ -5,7 +5,7 @@ import { CallButton, CallReassurance } from '../ui/CallButton';
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-screen min-h-[750px] flex items-center justify-center overflow-hidden bg-[#CC0000] pt-20">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#CC0000] pt-36 pb-20">
       {/* Cinematic Background Layers */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-25 mix-blend-overlay scale-110"
@@ -77,7 +77,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black uppercase tracking-tighter leading-[0.95] mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-display font-black uppercase tracking-tighter leading-[1.05] mb-8"
             >
               <span className="block italic text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">Commercial &amp;</span>
               <span className="block italic text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)]">Industrial Electrician</span>
@@ -88,9 +88,9 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="mt-10 max-w-xl mx-auto lg:mx-0"
+              className="mt-10"
             >
-              <p className="text-white/80 font-sans text-sm md:text-base leading-relaxed border-l-4 border-white pl-6 mb-12 drop-shadow-sm">
+              <p className="text-white/85 font-sans text-base leading-relaxed border-l-4 border-white pl-6 mb-10 max-w-xl mx-auto lg:mx-0 text-left drop-shadow-sm">
                 Premier industrial and commercial electrical contractors specializing in heavy-duty infrastructure, precision excavation, and critical engine systems for high-pressure environments.
               </p>
 
@@ -103,7 +103,7 @@ export const Hero = () => {
                   <span className="inline-block skew-x-[10deg]">See Our Services</span>
                 </a>
               </div>
-              <CallReassurance className="mt-6 text-white/80 text-center lg:text-left" />
+              <CallReassurance className="mt-6 text-white/85 justify-center lg:justify-start" />
             </motion.div>
           </motion.div>
         </div>
@@ -113,7 +113,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="hidden md:flex gap-16 mt-24 border-t border-white/10 pt-12 relative"
+          className="hidden md:flex justify-center lg:justify-start gap-16 mt-16 border-t border-white/10 pt-10 relative"
         >
             <div className="flex items-center gap-4 group">
                 <div className="p-3 bg-white/10 border border-white/20 skew-x-[-12deg] group-hover:bg-white transition-colors">

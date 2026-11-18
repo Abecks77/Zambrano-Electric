@@ -24,7 +24,7 @@ export const About = () => (
       </script>
       <script type="application/ld+json">{JSON.stringify(breadcrumbSchema([{ name: 'About', path: '/about' }]))}</script>
     </Helmet>
-    <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20">
       <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.95] mb-8">
         About <span className="text-race-red">Zambrano Electric</span>
       </h1>
@@ -52,7 +52,7 @@ export const About = () => (
       <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic mb-8 flex items-center gap-3">
         <ClipboardCheck className="h-7 w-7 text-race-red" /> How a Project Works
       </h2>
-      <ol className="space-y-4 mb-16">
+      <ol className="space-y-4 mb-16 max-w-4xl">
         {process.map(([title, text], i) => (
           <li key={title} className="glassmorphism p-6 flex gap-5">
             <span className="text-race-red font-black text-2xl">0{i + 1}</span>

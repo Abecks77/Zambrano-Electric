@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Calendar, Briefcase, Activity, FileText, Phone } from 'lucide-react';
 import { CallButton, CallReassurance } from '../components/ui/CallButton';
 import { BUSINESS } from '../lib/business';
+import { PageHeader } from '../components/ui/Heading';
 import { localBusinessSchema } from '../lib/schemas';
 
 export const Schedule = () => {
@@ -46,14 +47,10 @@ export const Schedule = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-20 text-white">
         
-        <div className="max-w-3xl mb-12">
-          <h1 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 flex items-center gap-4">
-            <span className="w-12 h-1 bg-race-red block"></span>
-            Schedule Service
-          </h1>
-          <p className="text-gray-400 text-lg mb-8">
-            The fastest way to book a site visit or estimate is to call us. Prefer not to call right now? Fill out the form and we’ll call you back.
-          </p>
+        <PageHeader eyebrow="Book a Site Visit" title="Schedule" accent="Service">
+          <p>The fastest way to book a site visit or estimate is to call us. Prefer not to call right now? Fill out the form and we’ll call you back.</p>
+        </PageHeader>
+        <div className="mb-14">
           <CallButton />
           <CallReassurance className="mt-5" />
         </div>
@@ -161,7 +158,7 @@ export const Schedule = () => {
           {/* Sidebar Info */}
           <div className="lg:col-span-1 space-y-6">
             <div className="glassmorphism p-6">
-              <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-black uppercase italic tracking-tight text-white mb-4 flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-gray-400" /> Availability
               </h3>
               <p className="text-gray-400 text-sm mb-4">
@@ -174,7 +171,7 @@ export const Schedule = () => {
             </div>
 
              <div className="glassmorphism p-6 border-hidden">
-              <h3 className="font-display font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-black uppercase italic tracking-tight text-white mb-4 flex items-center gap-2">
                 <Briefcase className="h-5 w-5 text-gray-400" /> Bidding Process
               </h3>
               <p className="text-gray-400 text-sm">
