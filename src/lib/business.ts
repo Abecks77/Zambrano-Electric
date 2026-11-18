@@ -13,6 +13,11 @@ export const BUSINESS = {
   postalCode: '79045',
   hoursDisplay: 'Mon–Fri, 8 AM – 5 PM',
   emergencyDisplay: '24/7 emergency line',
-  logo: 'https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d',
+  // Texas Department of Licensing & Regulation record (verified at tdlr.texas.gov):
+  // Electrical Contractor, active, originally issued 12/17/2021.
+  licenseNumber: '36699',
+  licenseDisplay: 'TX Electrical Contractor License #36699',
+  licensedSince: '2021',
+  logo: 'https://zambranoelectric.com/images/logo-900.webp',
   ogImage: 'https://lh3.googleusercontent.com/d/1LoVQ9qL3Ms5p8RxrCV7OmmrbgmKUZRqO',
 } as const;

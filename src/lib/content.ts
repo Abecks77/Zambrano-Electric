@@ -13,7 +13,7 @@ export const homeFaqs: Faq[] = [
   {
     question: 'What is your primary service area?',
     answer:
-      'Headquartered in Hereford, TX, we are the premier commercial and industrial electrical contractors serving the entire Texas Panhandle region, including surrounding industrial and agricultural hubs.',
+      'Headquartered in Hereford, TX, we serve commercial and industrial customers across the Texas Panhandle — including Amarillo, Canyon and Plainview — and the surrounding industrial and agricultural hubs.',
   },
   {
     question: 'What types of industrial facilities do you specialize in?',
@@ -28,12 +28,12 @@ export const homeFaqs: Faq[] = [
   {
     question: 'How do you handle project bidding and estimates?',
     answer:
-      'Transparency is key. We provide comprehensive, itemized bids for all commercial and industrial projects, ensuring complete clarity on materials, labor, and timelines before deployment begins.',
+      'Transparency is key. We provide comprehensive, itemized bids for all commercial and industrial projects, ensuring complete clarity on materials, labor, and timelines before work begins.',
   },
   {
     question: 'What safety certifications do your crews hold?',
     answer:
-      'We maintain a flawless 100% safety record. All operations strictly adhere to OSHA standards, and we are heavily certified with ISNetworld compliance, ensuring our crews operate securely in high-risk environments.',
+      'Safety comes first on every job. Our crews follow OSHA standards, we maintain ISNetworld compliance for facilities that require it, and Zambrano Electric is a licensed Texas electrical contractor (TDLR License #36699).',
   },
 ];
 
@@ -56,7 +56,8 @@ export const bookingFaqs: Faq[] = [
   },
   {
     question: 'Is Zambrano Electric licensed and insured?',
-    answer: 'Yes. Zambrano Electric LLC is a licensed and insured electrical contractor in Texas.',
+    answer:
+      'Yes. Zambrano Electric LLC holds Texas Electrical Contractor License #36699, issued by the Texas Department of Licensing and Regulation (TDLR), and is insured. You can verify the license at tdlr.texas.gov.',
   },
 ];
 

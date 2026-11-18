@@ -20,7 +20,7 @@ export const SeoSection = () => {
                 When operations are on the line, local industries turn to <strong className="text-[#E4E3E0]">Zambrano Electric, LLC</strong>, your go-to <strong className="text-gray-200">commercial electrician Hereford TX</strong> and expert <strong className="text-gray-200">industrial electrician Amarillo</strong> provider. 
               </p>
               <p>
-                As a leading <strong className="text-gray-200">Texas Panhandle electrical contractor</strong>, our team of professional electricians possesses the specialized expertise required for complex power systems. Whether you need a comprehensive heavy industrial power layout, underground utilities, or rapid-response machinery troubleshooting, call us today for a <strong className="text-[#E4E3E0]">free estimate</strong>. We are fully <strong className="text-[#E4E3E0]">licensed and insured</strong>, ensuring maximum safety and absolute precision for every project.
+                As a licensed <strong className="text-gray-200">Texas Panhandle electrical contractor</strong>, our team of professional electricians possesses the specialized expertise required for complex power systems. Whether you need a comprehensive heavy industrial power layout, underground utilities, or rapid-response machinery troubleshooting, call us today for a <strong className="text-[#E4E3E0]">free estimate</strong>. We are fully <strong className="text-[#E4E3E0]">licensed and insured</strong>, ensuring maximum safety and absolute precision for every project.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export const SeoSection = () => {
                 <ShieldCheck className="h-8 w-8 text-race-red" />
                 <div>
                   <div className="text-xs font-black uppercase text-[#E4E3E0]">Licensed & Insured</div>
-                  <div className="text-[10px] text-gray-500 uppercase tracking-widest">Texas State Certified</div>
+                  <div className="text-[10px] text-gray-500 uppercase tracking-widest">TX License #36699</div>
                 </div>
               </div>
 

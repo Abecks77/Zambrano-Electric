@@ -32,7 +32,7 @@ export const About = () => (
         Zambrano Electric LLC is a commercial and industrial electrical contractor headquartered at {BUSINESS.street} in {BUSINESS.city}, Texas. We serve manufacturing plants, processing facilities, agricultural operations and commercial buildings across Amarillo, Canyon, Plainview and the wider Texas Panhandle.
       </p>
       <p className="text-gray-400 leading-relaxed mb-10 max-w-3xl">
-        The company works in three divisions, so one contractor can cover the power, the ground work and the air system on the same project. We are licensed and insured, follow OSHA safety requirements and maintain ISNetworld compliance for work at facilities that require it.
+        The company works in three divisions, so one contractor can cover the power, the ground work and the air system on the same project. We hold Texas Electrical Contractor License #{BUSINESS.licenseNumber} from the Texas Department of Licensing and Regulation (licensed since {BUSINESS.licensedSince}), carry insurance, follow OSHA safety requirements and maintain ISNetworld compliance for facilities that require it.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
@@ -62,7 +62,7 @@ export const About = () => (
       </ol>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16 text-sm text-gray-300">
-        <p className="flex items-start gap-3"><ShieldCheck className="h-5 w-5 text-race-red flex-shrink-0" /> Licensed &amp; insured · OSHA safety requirements · ISNetworld compliant</p>
+        <p className="flex items-start gap-3"><ShieldCheck className="h-5 w-5 text-race-red flex-shrink-0" /> {BUSINESS.licenseDisplay} · Insured · OSHA safety requirements · ISNetworld compliant</p>
         <p className="flex items-start gap-3"><MapPin className="h-5 w-5 text-race-red flex-shrink-0" /> {BUSINESS.street}, {BUSINESS.city}, {BUSINESS.region} {BUSINESS.postalCode} · <Link to="/service-areas" className="underline hover:text-race-red">Service areas</Link></p>
       </div>
 

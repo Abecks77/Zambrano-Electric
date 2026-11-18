@@ -31,7 +31,7 @@ export const localBusinessSchema = {
     { '@type': 'AdministrativeArea', name: 'Texas Panhandle' },
   ],
   description:
-    'Commercial and industrial electrical contractor based in Hereford, TX, serving Amarillo and the Texas Panhandle. Industrial electrical systems, underground utilities and hydro excavation, and compressed air system installation. 24/7 emergency line.',
+    'Licensed Texas electrical contractor (TDLR License #36699) based in Hereford, TX, serving Amarillo and the Texas Panhandle. Industrial electrical systems, underground utilities and hydro excavation, and compressed air system installation. 24/7 emergency line.',
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -41,6 +41,18 @@ export const localBusinessSchema = {
     },
   ],
   priceRange: '$$',
+  foundingDate: BUSINESS.licensedSince,
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'license',
+    name: 'Texas Electrical Contractor License',
+    identifier: BUSINESS.licenseNumber,
+    recognizedBy: {
+      '@type': 'GovernmentOrganization',
+      name: 'Texas Department of Licensing and Regulation',
+      url: 'https://www.tdlr.texas.gov/',
+    },
+  },
   knowsAbout: [
     'Industrial electrical contracting',
     'Commercial electrical contracting',

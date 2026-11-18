@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Search, CheckCircle2 } from 'lucide-react';
 import { localBusinessSchema } from '../lib/schemas';
 import { CallButton, CallReassurance } from '../components/ui/CallButton';
 import { BUSINESS } from '../lib/business';
-import { PageHeader } from '../components/ui/Heading';
+import { PageHeader, SectionHeading } from '../components/ui/Heading';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -142,6 +142,24 @@ export const Contact = () => {
           </div>
 
         </div>
+
+        <section className="mt-20 pt-16 border-t border-metal/30">
+          <SectionHeading title="What Happens" accent="When You Call" size="sm" />
+          <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              ['Tell us about the job', 'Describe the facility, the equipment or area involved and your timeline. A real person on our team answers — no call center.'],
+              ['We schedule a site visit', 'We set a time to see the job in person, review conditions and gather the specifications we need to price it accurately.'],
+              ['You get an itemized estimate', 'A free, itemized bid covering labor, materials and timeline, so you know exactly what you’re approving before work begins.'],
+            ].map(([title, text], i) => (
+              <li key={title} className="glassmorphism p-6">
+                <span className="text-race-red font-black text-2xl">0{i + 1}</span>
+                <h3 className="font-black uppercase tracking-wide text-white mt-2 mb-2">{title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{text}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="text-sm text-gray-500 mt-8">Zambrano Electric LLC · {BUSINESS.licenseDisplay} · Insured</p>
+        </section>
       </div>
     </div>
   );

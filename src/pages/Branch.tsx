@@ -14,7 +14,7 @@ const branchData: Record<string, any> = {
     title: 'Electrical Contractor',
     subtitle: 'Commercial & Industrial Solutions',
     description: 'Our electrical division handles high-complexity projects for industrial facilities. From switchgear installation to full plant automation controls, we ensure your infrastructure is safe, compliant, and optimized for maximum uptime.',
-    image: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2070&auto=format&fit=crop', // A more industrial switchgear/panel image if possible, or use one that looks like the screenshot
+    image: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=60&w=1600&auto=format&fit=crop', // A more industrial switchgear/panel image if possible, or use one that looks like the screenshot
     icon: Factory,
     features: [
       'High-Voltage Distribution',
@@ -25,15 +25,15 @@ const branchData: Record<string, any> = {
       '24/7 Emergency Maintenance'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=2074&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2070&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=60&w=900&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=60&w=900&auto=format&fit=crop'
     ]
   },
   'underground': {
     title: 'Underground Systems',
     subtitle: 'Precision Earthwork & Infrastructure',
     description: 'We specialize in safe, precise underground utility installation. Utilizing state-of-the-art hydro excavation and heavy-duty ditching equipment, we navigate complex underground environments without disrupting critical existing infrastructure.',
-    image: 'https://images.unsplash.com/photo-1621905252507-b354bcadc0e8?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1649807533255-bbc9c9fb7d77?q=60&w=1600&auto=format&fit=crop',
     icon: HardHat,
     features: [
       'Hydro Excavation',
@@ -42,15 +42,15 @@ const branchData: Record<string, any> = {
       'Underground Electrical Fault Repairs'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1590487988330-896898166946?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1531834351336-db1be9ec4597?q=80&w=2070&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1751054824448-749f467ffc4f?q=60&w=900&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1686772553688-92fa864cae8a?q=60&w=900&auto=format&fit=crop'
     ]
   },
   'compressed-air': {
     title: 'Compressed Air',
     subtitle: 'Industrial Pneumatic Solutions',
     description: 'Reliable compressed air is the lifeblood of industrial manufacturing. We design, install, and maintain heavy-duty compressed air systems, ensuring optimal pressure, zero leaks, and seamless machinery integration.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=60&w=1600&auto=format&fit=crop',
     icon: Wind,
     features: [
       'Compressor Room Design & Build',
@@ -59,8 +59,8 @@ const branchData: Record<string, any> = {
       'Machinery Pneumatic Integration'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=2070&auto=format&fit=crop'
+      'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=60&w=900&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=60&w=900&auto=format&fit=crop'
     ]
   }
 };

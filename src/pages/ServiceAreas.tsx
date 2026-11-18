@@ -20,7 +20,7 @@ export const ServiceAreas = () => (
         Texas Panhandle <span className="text-race-red">Service Areas</span>
       </h1>
       <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-3xl">
-        Zambrano Electric is based in Hereford, TX and serves commercial and industrial customers across the Texas Panhandle. For emergency work outside our 150-mile radius, call {BUSINESS.phoneDisplay}.
+        Zambrano Electric is based in Hereford, TX and serves commercial and industrial customers across the Texas Panhandle with industrial electrical, underground utility and compressed air work. Crews are dispatched from Hereford, and our line is answered 24/7 for emergencies. For work outside our 150-mile radius, call {BUSINESS.phoneDisplay}.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
         {serviceAreas.map((a) => (
@@ -28,6 +28,7 @@ export const ServiceAreas = () => (
             <span>
               <span className="flex items-center gap-2 font-black uppercase tracking-wide text-lg"><MapPin className="h-5 w-5 text-race-red" /> {a.city}, TX</span>
               <span className="text-xs text-gray-500 uppercase tracking-widest">{a.county}</span>
+              <span className="block text-sm text-gray-400 leading-relaxed mt-3 pr-6">{a.intro[0]}</span>
             </span>
             <ArrowRight className="h-5 w-5 text-race-red group-hover:translate-x-1 transition-transform" />
           </Link>

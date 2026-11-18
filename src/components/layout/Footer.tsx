@@ -12,15 +12,17 @@ export const Footer = () => {
           
           <div className="col-span-1 md:col-span-1">
              <Link to="/" className="flex items-center mb-4 group inline-flex" aria-label="Zambrano Electric Home">
-               <img 
-                 src="https://lh3.googleusercontent.com/d/178nfchOeNudYMOx5eA1x-jJRFlTa0h6d" 
-                 alt="Zambrano Electric Logo" 
+               <img
+                 src="/images/logo-240.webp"
+                 width={240}
+                 height={226}
+                 loading="lazy"
+                 alt="Zambrano Electric LLC logo"
                  className="h-20 w-auto object-contain"
-                 referrerPolicy="no-referrer"
                />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Top-rated industrial & commercial electrical contractors serving the Texas Panhandle. Powering progress with precision and heavy-duty capabilities.
+              Licensed industrial &amp; commercial electrical contractor serving Hereford, Amarillo and the Texas Panhandle since {BUSINESS.licensedSince}.
             </p>
           </div>
 
@@ -68,7 +70,7 @@ export const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-metal flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Zambrano Electric, LLC. All rights reserved.
+            &copy; {new Date().getFullYear()} Zambrano Electric, LLC. All rights reserved. · {BUSINESS.licenseDisplay}
           </p>
           <div className="flex space-x-6 text-gray-500 text-sm">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>

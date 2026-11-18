@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Zap, HardHat, Wind, ArrowRight, Terminal, Activity, ShieldCheck } from 'lucide-react';
-import { motion } from 'motion/react';
 import { CallButton } from '../ui/CallButton';
 import { SectionHeading } from '../ui/Heading';
 
@@ -52,10 +51,9 @@ export const BranchCards = () => {
           {branches.map((branch) => {
             const Icon = branch.icon;
             return (
-              <motion.div
+              <div
                 key={branch.id}
-                whileHover={{ y: -8 }}
-                className="group relative h-full"
+                className="group relative h-full transition-transform duration-300 hover:-translate-y-2"
               >
                 <Link to={`/branch/${branch.id}`} className="block h-full">
                   <div className="relative glassmorphism p-10 border border-metal hover:border-race-red transition-all duration-500 overflow-hidden h-full flex flex-col bg-[#0A0A0A]">
@@ -100,7 +98,7 @@ export const BranchCards = () => {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
         </div>

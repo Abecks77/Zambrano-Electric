@@ -38,6 +38,11 @@ export const branchSeo: Record<string, BranchSeo> = {
         answer:
           'Call (806) 576-7703. We’ll ask a few questions about the job, schedule a site visit, and provide an itemized bid covering labor, materials and timeline. Estimates are free.',
       },
+      {
+        question: 'What should I have ready when I call about an electrical project?',
+        answer:
+          'Helpful details are the facility address, what equipment or area is involved, the service size or voltage if you know it, any drawings or one-line diagrams, and your timeline. Don’t worry if you don’t have all of it — we gather the rest during the site visit.',
+      },
     ],
   },
   underground: {
@@ -65,6 +70,11 @@ export const branchSeo: Record<string, BranchSeo> = {
         answer:
           'Call (806) 576-7703 to describe the job. We’ll set up a site visit, review existing utilities and provide an itemized bid.',
       },
+      {
+        question: 'What is the difference between hydro excavation and trenching?',
+        answer:
+          'Trenching cuts an open channel with mechanical equipment to lay conduit or pipe. Hydro excavation uses pressurized water and a vacuum to remove soil, which is safer for exposing existing utilities and for digging in tight or congested areas. Many projects use both: hydro excavation to locate existing lines, then trenching for the new run.',
+      },
     ],
   },
   'compressed-air': {
@@ -91,6 +101,11 @@ export const branchSeo: Record<string, BranchSeo> = {
         question: 'How do I get a compressed air estimate?',
         answer:
           'Call (806) 576-7703. We’ll discuss your equipment and air demand, schedule a site visit and provide an itemized bid.',
+      },
+      {
+        question: 'What causes pressure drops in a compressed air system?',
+        answer:
+          'Common causes are undersized or overly long piping runs, leaks at fittings, hoses and connections, clogged filters, and too little receiver (storage) capacity to cover spikes in demand. A system review pinpoints which of these applies to your plant.',
       },
     ],
   },

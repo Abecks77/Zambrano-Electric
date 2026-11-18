@@ -61,3 +61,19 @@ body {
 .animate-scan {
   animation: scanline 8s linear infinite;
 }
+
+/* Entrance animations (replace the motion library). `both` keeps the start
+   state during any delay; content is always present in the static HTML. */
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes slide-in { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.8) rotate(-5deg); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+.animate-rise { animation: rise 0.8s ease-out both; }
+.animate-slide-in { animation: slide-in 0.8s ease-out both; }
+.animate-pop { animation: pop 1s ease-out both; }
+.animate-fade { animation: fade 1s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise, .animate-slide-in, .animate-pop, .animate-fade, .animate-scan, .animate-pulse-line { animation: none; }
+}

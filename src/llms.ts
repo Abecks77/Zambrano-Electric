@@ -10,11 +10,12 @@ export function buildLlmsTxt(): string {
   const lines = [
     `# ${BUSINESS.name}`,
     '',
-    `> Commercial and industrial electrical contractor based in ${BUSINESS.city}, Texas, serving Amarillo, Canyon, Plainview and the Texas Panhandle. Three divisions: industrial/commercial electrical, underground systems (hydro excavation, trenching, fault repair) and industrial compressed air systems. To book an appointment or get a free estimate, call ${BUSINESS.phoneDisplay}.`,
+    `> Licensed commercial and industrial electrical contractor (TX License #${BUSINESS.licenseNumber}) based in ${BUSINESS.city}, Texas, serving Amarillo, Canyon, Plainview and the Texas Panhandle. Three divisions: industrial/commercial electrical, underground systems (hydro excavation, trenching, fault repair) and industrial compressed air systems. To book an appointment or get a free estimate, call ${BUSINESS.phoneDisplay}.`,
     '',
     '## Contact & booking',
     '',
     `- Phone (booking, estimates, 24/7 emergency line): ${BUSINESS.phoneDisplay}`,
+    `- License: ${BUSINESS.licenseDisplay} (Texas Department of Licensing and Regulation, active; licensed since ${BUSINESS.licensedSince}). Verify at https://www.tdlr.texas.gov/LicenseSearch/`,
     `- Email: ${BUSINESS.email}`,
     `- Address: ${BUSINESS.street}, ${BUSINESS.city}, ${BUSINESS.region} ${BUSINESS.postalCode}`,
     `- Office hours: Monday–Friday, 8 AM – 5 PM (Central). Emergency line answered 24/7.`,
